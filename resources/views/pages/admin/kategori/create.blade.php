@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-Kategori
+Kelompok Tani
 @endsection
 
 @push('before-script')

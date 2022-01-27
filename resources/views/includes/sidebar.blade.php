@@ -28,7 +28,7 @@
 <li {{ $pages == 'users' ? 'class=active' : '' }}><a class="nav-link" href="{{route('users')}}"><i class="fas fa-flag-checkered"></i><span>Users </span></a></li>
 
 
-<li {{ $pages == 'kategori' ? 'class=active' : '' }}><a class="nav-link" href="{{route('kategori')}}"><i class="fas fa-boxes"></i><span>Kategori </span></a></li>
+<li {{ $pages == 'kategori' ? 'class=active' : '' }}><a class="nav-link" href="{{route('kategori')}}"><i class="fas fa-boxes"></i><span>Kelompok tani </span></a></li>
 
 
 <li {{ $pages == 'gedung' ? 'class=active' : '' }}><a class="nav-link" href="{{route('gedung')}}"><i class="fas fa-building"></i><span>Bahan Produksi </span></a></li>
