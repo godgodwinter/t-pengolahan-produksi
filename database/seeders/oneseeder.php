@@ -21,7 +21,7 @@ class oneseeder extends Seeder
 
         //ADMIN SEEDER
         DB::table('users')->insert([
-            'name' => 'Admin',
+            'name' => 'Paimin',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('admin'),
             'tipeuser' => 'admin',
@@ -31,38 +31,48 @@ class oneseeder extends Seeder
             'updated_at' => Carbon::now()
          ]);
 
+         DB::table('users')->insert([
+            'name' => 'Pegawai',
+            'email' => 'pegawai@gmail.com',
+            'password' => Hash::make('pegawai'),
+            'tipeuser' => 'pegawai',
+            'nomerinduk' => '2',
+            'username' => 'pegawai',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+         ]);
 
         DB::table('users')->insert([
-            'name' => 'Operator',
-            'email' => 'operator@gmail.com',
-            'password' => Hash::make('operator'),
-            'tipeuser' => 'operator',
-            'nomerinduk' => '1',
-            'username' => 'operator',
+            'name' => 'Manajer',
+            'email' => 'manajer@gmail.com',
+            'password' => Hash::make('manajer'),
+            'tipeuser' => 'manajer',
+            'nomerinduk' => '3',
+            'username' => 'manajer',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
          ]);
 
 
         DB::table('users')->insert([
-            'name' => 'Kepala Gedung',
-            'email' => 'kepalagedung@gmail.com',
-            'password' => Hash::make('kepalagedung'),
-            'tipeuser' => 'kepalagedung',
-            'nomerinduk' => '1',
-            'username' => 'kepalagedung',
+            'name' => 'Petani',
+            'email' => 'petani@gmail.com',
+            'password' => Hash::make('petani'),
+            'tipeuser' => 'petani',
+            'nomerinduk' => '3',
+            'username' => 'petani',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
          ]);
 
           //settings SEEDER
         DB::table('settings')->insert([
-            'app_nama' => 'SI Maintenance Mesin',
+            'app_nama' => 'SI Pelaporan Pengolahan Produksi',
             'app_namapendek' => 'SMM',
             'paginationjml' => '10',
-            'lembaga_nama' => 'PT Maintenance Mesin',
-            'lembaga_jalan' => 'Jl. Mewah No. 01, Kec. Kromengan, Kab. Malang',
-            'lembaga_telp' => '0341-222111',
+            'lembaga_nama' => 'PT Pelaporan Pengolahan Produksi',
+            'lembaga_jalan' => 'Jl. Warnawarni No. 11, Kec. Kromengan, Kab. Malang',
+            'lembaga_telp' => '0341-123121',
             'lembaga_kota' => 'Malang',
             'lembaga_logo' => 'assets/upload/logo.png',
             'sekolahttd' => 'Nama Kepala Sekolah M.Pd',
@@ -72,96 +82,20 @@ class oneseeder extends Seeder
 
 
          DB::table('kategori')->insert([
-            'nama' => 'Komputer',
-            'prefix' => 'mesin',
+            'nama' => 'Kelompok Tani Desa Anggora',
+            'prefix' => 'kelompoktani',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
          ]);
 
 
          DB::table('kategori')->insert([
-            'nama' => 'Percetakan',
-            'prefix' => 'mesin',
+            'nama' => 'Kelompok Tani Desa Persia',
+            'prefix' => 'kelompoktani',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
          ]);
 
-         DB::table('gedung')->insert([
-            'nama' => 'Gama Tower',
-            'lantai' => '1',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-         ]);
-
-         DB::table('gedung')->insert([
-            'nama' => 'Gama Tower',
-            'lantai' => '2',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-         ]);
-
-         DB::table('gedung')->insert([
-            'nama' => 'Gama Tower',
-            'lantai' => '3',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-         ]);
-
-
-         DB::table('gedung')->insert([
-            'nama' => 'Wisma 46',
-            'lantai' => '1',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-         ]);
-
-         DB::table('gedung')->insert([
-            'nama' => 'Wisma 46',
-            'lantai' => '2',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-         ]);
-
-         DB::table('gedung')->insert([
-            'nama' => 'Sahid Sudirman Center',
-            'lantai' => '1',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-         ]);
-
-
-         DB::table('mesin')->insert([
-            'nama' => 'PC SERVER A ',
-            'kategori_id' => '1',
-            'gedung_id' => '1',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-         ]);
-
-         DB::table('mesin')->insert([
-            'nama' => 'PC SERVER B',
-            'kategori_id' => '1',
-            'gedung_id' => '2',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-         ]);
-
-         DB::table('mesin')->insert([
-            'nama' => 'PC SERVER C',
-            'kategori_id' => '1',
-            'gedung_id' => '3',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-         ]);
-
-
-         DB::table('mesin')->insert([
-            'nama' => 'Printer A',
-            'kategori_id' => '2',
-            'gedung_id' => '1',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-         ]);
 
     }
 }
