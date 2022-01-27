@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\adminapicontroller;
+use App\Http\Controllers\adminbahancontroller;
+use App\Http\Controllers\adminbahanproduksicontroller;
 use App\Http\Controllers\admincetakcontroller;
 use App\Http\Controllers\admindashboardcontroller;
 use App\Http\Controllers\admingedungcontroller;
