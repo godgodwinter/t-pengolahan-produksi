@@ -75,16 +75,6 @@ Route::group(['middleware' => ['auth:web', 'verified']], function() {
     Route::delete('/admin/datausers/multidel', [adminuserscontroller::class, 'multidel'])->name('users.multidel');
 
 
-    //gedung
-    Route::get('/admin/gedung', [admingedungcontroller::class, 'index'])->name('gedung');
-    Route::get('/admin/gedung/{id}', [admingedungcontroller::class, 'edit'])->name('gedung.edit');
-    Route::put('/admin/gedung/{id}', [admingedungcontroller::class, 'update'])->name('gedung.update');
-    Route::delete('/admin/gedung/{id}', [admingedungcontroller::class, 'destroy'])->name('gedung.destroy');
-    Route::get('/admin/datagedung/cari', [admingedungcontroller::class, 'cari'])->name('gedung.cari');
-    Route::get('/admin/datagedung/create', [admingedungcontroller::class, 'create'])->name('gedung.create');
-    Route::post('/admin/datagedung', [admingedungcontroller::class, 'store'])->name('gedung.store');
-
-
     //kategori
     Route::get('/admin/kategori', [adminkategoricontroller::class, 'index'])->name('kategori');
     Route::get('/admin/kategori/{id}', [adminkategoricontroller::class, 'edit'])->name('kategori.edit');
@@ -95,56 +85,80 @@ Route::group(['middleware' => ['auth:web', 'verified']], function() {
     Route::post('/admin/datakategori', [adminkategoricontroller::class, 'store'])->name('kategori.store');
 
 
-    //mesin
-    Route::get('/admin/mesin', [adminmesincontroller::class, 'index'])->name('mesin');
-    Route::get('/admin/mesin/{id}', [adminmesincontroller::class, 'edit'])->name('mesin.edit');
-    Route::put('/admin/mesin/{id}', [adminmesincontroller::class, 'update'])->name('mesin.update');
-    Route::delete('/admin/mesin/{id}', [adminmesincontroller::class, 'destroy'])->name('mesin.destroy');
-    Route::get('/admin/datamesin/cari', [adminmesincontroller::class, 'cari'])->name('mesin.cari');
-    Route::get('/admin/datamesin/create', [adminmesincontroller::class, 'create'])->name('mesin.create');
-    Route::post('/admin/datamesin', [adminmesincontroller::class, 'store'])->name('mesin.store');
+    //bahan
+    Route::get('/admin/bahan', [adminbahancontroller::class, 'index'])->name('bahan');
+    Route::get('/admin/bahan/{id}', [adminbahancontroller::class, 'edit'])->name('bahan.edit');
+    Route::put('/admin/bahan/{id}', [adminbahancontroller::class, 'update'])->name('bahan.update');
+    Route::delete('/admin/bahan/{id}', [adminbahancontroller::class, 'destroy'])->name('bahan.destroy');
+    Route::get('/admin/databahan/cari', [adminbahancontroller::class, 'cari'])->name('bahan.cari');
+    Route::get('/admin/databahan/create', [adminbahancontroller::class, 'create'])->name('bahan.create');
+    Route::post('/admin/databahan', [adminbahancontroller::class, 'store'])->name('bahan.store');
 
 
-    //monitoring
-    Route::get('/admin/monitoring', [adminmonitoringcontroller::class, 'index'])->name('monitoring');
-    Route::get('/admin/monitoring/{id}', [adminmonitoringcontroller::class, 'edit'])->name('monitoring.edit');
-    Route::put('/admin/monitoring/{id}', [adminmonitoringcontroller::class, 'update'])->name('monitoring.update');
-    Route::delete('/admin/monitoring/{id}', [adminmonitoringcontroller::class, 'destroy'])->name('monitoring.destroy');
-    Route::get('/admin/datamonitoring/cari', [adminmonitoringcontroller::class, 'cari'])->name('monitoring.cari');
-    Route::get('/admin/datamonitoring/create', [adminmonitoringcontroller::class, 'create'])->name('monitoring.create');
-    Route::post('/admin/datamonitoring', [adminmonitoringcontroller::class, 'store'])->name('monitoring.store');
-    Route::get('/admin/monitoring/{id}/detail', [adminmonitoringcontroller::class, 'detail'])->name('monitoring.detail');
-    Route::get('/admin/monitoring/{id}/detail/create', [adminmonitoringcontroller::class, 'detailcreate'])->name('monitoring.detail.create');
-    Route::post('/admin/monitoring/{id}/detail/store', [adminmonitoringcontroller::class, 'detailstore'])->name('monitoring.detail.store');
-    Route::delete('/admin/monitoring/{id}/detail/destroy/{monitoringdetail}', [adminmonitoringcontroller::class, 'detaildestroy'])->name('monitoring.detail.destroy');
+    //pegawai
+    Route::get('/admin/pegawai', [adminpegawaicontroller::class, 'index'])->name('pegawai');
+    Route::get('/admin/pegawai/{id}', [adminpegawaicontroller::class, 'edit'])->name('pegawai.edit');
+    Route::put('/admin/pegawai/{id}', [adminpegawaicontroller::class, 'update'])->name('pegawai.update');
+    Route::delete('/admin/pegawai/{id}', [adminpegawaicontroller::class, 'destroy'])->name('pegawai.destroy');
+    Route::get('/admin/datapegawai/cari', [adminpegawaicontroller::class, 'cari'])->name('pegawai.cari');
+    Route::get('/admin/datapegawai/create', [adminpegawaicontroller::class, 'create'])->name('pegawai.create');
+    Route::post('/admin/datapegawai', [adminpegawaicontroller::class, 'store'])->name('pegawai.store');
 
 
-    //pelaporankerusakan
-    Route::get('/admin/pelaporankerusakan', [adminpelaporankerusakancontroller::class, 'index'])->name('pelaporankerusakan');
-    Route::get('/admin/pelaporankerusakan/{id}', [adminpelaporankerusakancontroller::class, 'edit'])->name('pelaporankerusakan.edit');
-    Route::put('/admin/pelaporankerusakan/{id}', [adminpelaporankerusakancontroller::class, 'update'])->name('pelaporankerusakan.update');
-    Route::delete('/admin/pelaporankerusakan/{id}', [adminpelaporankerusakancontroller::class, 'destroy'])->name('pelaporankerusakan.destroy');
-    Route::get('/admin/datapelaporankerusakan/cari', [adminpelaporankerusakancontroller::class, 'cari'])->name('pelaporankerusakan.cari');
-    Route::get('/admin/datapelaporankerusakan/create', [adminpelaporankerusakancontroller::class, 'create'])->name('pelaporankerusakan.create');
-    Route::post('/admin/datapelaporankerusakan', [adminpelaporankerusakancontroller::class, 'store'])->name('pelaporankerusakan.store');
-    Route::get('/admin/pelaporankerusakan/{id}/detail', [adminpelaporankerusakancontroller::class, 'detail'])->name('pelaporankerusakan.detail');
-    Route::get('/admin/pelaporankerusakan/{id}/detail/create', [adminpelaporankerusakancontroller::class, 'detailcreate'])->name('pelaporankerusakan.detail.create');
-    Route::post('/admin/pelaporankerusakan/{id}/detail/store', [adminpelaporankerusakancontroller::class, 'detailstore'])->name('pelaporankerusakan.detail.store');
-    Route::delete('/admin/pelaporankerusakan/{id}/detail/destroy/{pelaporankerusakandetail}', [adminpelaporankerusakancontroller::class, 'detaildestroy'])->name('pelaporankerusakan.detail.destroy');
+
+    //petani
+    Route::get('/admin/petani', [adminpetanicontroller::class, 'index'])->name('petani');
+    Route::get('/admin/petani/{id}', [adminpetanicontroller::class, 'edit'])->name('petani.edit');
+    Route::put('/admin/petani/{id}', [adminpetanicontroller::class, 'update'])->name('petani.update');
+    Route::delete('/admin/petani/{id}', [adminpetanicontroller::class, 'destroy'])->name('petani.destroy');
+    Route::get('/admin/datapetani/cari', [adminpetanicontroller::class, 'cari'])->name('petani.cari');
+    Route::get('/admin/datapetani/create', [adminpetanicontroller::class, 'create'])->name('petani.create');
+    Route::post('/admin/datapetani', [adminpetanicontroller::class, 'store'])->name('petani.store');
 
 
-    //maintenance
-    Route::get('/admin/maintenance', [adminmaintenancecontroller::class, 'index'])->name('maintenance');
-    Route::get('/admin/maintenance/{id}', [adminmaintenancecontroller::class, 'edit'])->name('maintenance.edit');
-    Route::put('/admin/maintenance/{id}', [adminmaintenancecontroller::class, 'update'])->name('maintenance.update');
-    Route::delete('/admin/maintenance/{id}', [adminmaintenancecontroller::class, 'destroy'])->name('maintenance.destroy');
-    Route::get('/admin/datamaintenance/cari', [adminmaintenancecontroller::class, 'cari'])->name('maintenance.cari');
-    Route::get('/admin/datamaintenance/create', [adminmaintenancecontroller::class, 'create'])->name('maintenance.create');
-    Route::post('/admin/datamaintenance', [adminmaintenancecontroller::class, 'store'])->name('maintenance.store');
-    Route::get('/admin/maintenance/{id}/detail', [adminmaintenancecontroller::class, 'detail'])->name('maintenance.detail');
-    Route::get('/admin/maintenance/{id}/detail/create', [adminmaintenancecontroller::class, 'detailcreate'])->name('maintenance.detail.create');
-    Route::post('/admin/maintenance/{id}/detail/store', [adminmaintenancecontroller::class, 'detailstore'])->name('maintenance.detail.store');
-    Route::delete('/admin/maintenance/{id}/detail/destroy/{maintenancedetail}', [adminmaintenancecontroller::class, 'detaildestroy'])->name('maintenance.detail.destroy');
+
+    //produk
+    Route::get('/admin/produk', [adminprodukcontroller::class, 'index'])->name('produk');
+    Route::get('/admin/produk/{id}', [adminprodukcontroller::class, 'edit'])->name('produk.edit');
+    Route::put('/admin/produk/{id}', [adminprodukcontroller::class, 'update'])->name('produk.update');
+    Route::delete('/admin/produk/{id}', [adminprodukcontroller::class, 'destroy'])->name('produk.destroy');
+    Route::get('/admin/dataproduk/cari', [adminprodukcontroller::class, 'cari'])->name('produk.cari');
+    Route::get('/admin/dataproduk/create', [adminprodukcontroller::class, 'create'])->name('produk.create');
+    Route::post('/admin/dataproduk', [adminprodukcontroller::class, 'store'])->name('produk.store');
+
+
+
+    //bahanproduksi
+    Route::get('/admin/bahanproduksi', [adminbahanproduksicontroller::class, 'index'])->name('bahanproduksi');
+    Route::get('/admin/bahanproduksi/{id}', [adminbahanproduksicontroller::class, 'edit'])->name('bahanproduksi.edit');
+    Route::put('/admin/bahanproduksi/{id}', [adminbahanproduksicontroller::class, 'update'])->name('bahanproduksi.update');
+    Route::delete('/admin/bahanproduksi/{id}', [adminbahanproduksicontroller::class, 'destroy'])->name('bahanproduksi.destroy');
+    Route::get('/admin/databahanproduksi/cari', [adminbahanproduksicontroller::class, 'cari'])->name('bahanproduksi.cari');
+    Route::get('/admin/databahanproduksi/create', [adminbahanproduksicontroller::class, 'create'])->name('bahanproduksi.create');
+    Route::post('/admin/databahanproduksi', [adminbahanproduksicontroller::class, 'store'])->name('bahanproduksi.store');
+
+
+
+    //hasilpanen
+    Route::get('/admin/hasilpanen', [adminhasilpanencontroller::class, 'index'])->name('hasilpanen');
+    Route::get('/admin/hasilpanen/{id}', [adminhasilpanencontroller::class, 'edit'])->name('hasilpanen.edit');
+    Route::put('/admin/hasilpanen/{id}', [adminhasilpanencontroller::class, 'update'])->name('hasilpanen.update');
+    Route::delete('/admin/hasilpanen/{id}', [adminhasilpanencontroller::class, 'destroy'])->name('hasilpanen.destroy');
+    Route::get('/admin/datahasilpanen/cari', [adminhasilpanencontroller::class, 'cari'])->name('hasilpanen.cari');
+    Route::get('/admin/datahasilpanen/create', [adminhasilpanencontroller::class, 'create'])->name('hasilpanen.create');
+    Route::post('/admin/datahasilpanen', [adminhasilpanencontroller::class, 'store'])->name('hasilpanen.store');
+
+
+
+
+    //rekaprugilaba
+    Route::get('/admin/rekaprugilaba', [adminrekaprugilabacontroller::class, 'index'])->name('rekaprugilaba');
+    Route::get('/admin/rekaprugilaba/{id}', [adminrekaprugilabacontroller::class, 'edit'])->name('rekaprugilaba.edit');
+    Route::put('/admin/rekaprugilaba/{id}', [adminrekaprugilabacontroller::class, 'update'])->name('rekaprugilaba.update');
+    Route::delete('/admin/rekaprugilaba/{id}', [adminrekaprugilabacontroller::class, 'destroy'])->name('rekaprugilaba.destroy');
+    Route::get('/admin/datarekaprugilaba/cari', [adminrekaprugilabacontroller::class, 'cari'])->name('rekaprugilaba.cari');
+    Route::get('/admin/datarekaprugilaba/create', [adminrekaprugilabacontroller::class, 'create'])->name('rekaprugilaba.create');
+    Route::post('/admin/datarekaprugilaba', [adminrekaprugilabacontroller::class, 'store'])->name('rekaprugilaba.store');
 
     //API
     Route::get('/admin/api/kriteriadetail/{tahunpenilaian}', [admintahunpenilaiandetailcontroller::class, 'apikriteriadetail'])->name('api.kriteriadetail');
@@ -161,52 +175,6 @@ Route::group(['middleware' => ['auth:web', 'verified']], function() {
     Route::post('/admin/proses/cleartemp', [adminprosescontroller::class, 'cleartemp'])->name('cleartemp');
 
 
-
-    // menu operator
-
-
-    Route::get('/operator/mesin', [operatormesincontroller::class, 'index'])->name('operator.mesin');
-    Route::get('/operator/datamesin/cari', [operatormesincontroller::class, 'cari'])->name('operator.mesin.cari');
-
-    //monitoring
-    Route::get('/operator/monitoring', [operatormonitoringcontroller::class, 'index'])->name('operator.monitoring');
-    Route::get('/operator/monitoring/{id}', [operatormonitoringcontroller::class, 'edit'])->name('operator.monitoring.edit');
-    Route::put('/operator/monitoring/{id}', [operatormonitoringcontroller::class, 'update'])->name('operator.monitoring.update');
-    Route::delete('/operator/monitoring/{id}', [operatormonitoringcontroller::class, 'destroy'])->name('operator.monitoring.destroy');
-    Route::get('/operator/datamonitoring/cari', [operatormonitoringcontroller::class, 'cari'])->name('operator.monitoring.cari');
-    Route::get('/operator/datamonitoring/create', [operatormonitoringcontroller::class, 'create'])->name('operator.monitoring.create');
-    Route::post('/operator/datamonitoring', [operatormonitoringcontroller::class, 'store'])->name('operator.monitoring.store');
-    Route::get('/operator/monitoring/{id}/detail', [operatormonitoringcontroller::class, 'detail'])->name('operator.monitoring.detail');
-    Route::get('/operator/monitoring/{id}/detail/create', [operatormonitoringcontroller::class, 'detailcreate'])->name('operator.monitoring.detail.create');
-    Route::post('/operator/monitoring/{id}/detail/store', [operatormonitoringcontroller::class, 'detailstore'])->name('operator.monitoring.detail.store');
-    Route::delete('/operator/monitoring/{id}/detail/destroy/{monitoringdetail}', [operatormonitoringcontroller::class, 'detaildestroy'])->name('operator.monitoring.detail.destroy');
-
-
-
-    Route::get('/operator/pelaporankerusakan', [operatorpelaporankerusakancontroller::class, 'index'])->name('operator.pelaporankerusakan');
-    Route::get('/operator/pelaporankerusakan/{id}', [operatorpelaporankerusakancontroller::class, 'edit'])->name('operator.pelaporankerusakan.edit');
-    Route::put('/operator/pelaporankerusakan/{id}', [operatorpelaporankerusakancontroller::class, 'update'])->name('operator.pelaporankerusakan.update');
-    Route::delete('/operator/pelaporankerusakan/{id}', [operatorpelaporankerusakancontroller::class, 'destroy'])->name('operator.pelaporankerusakan.destroy');
-    Route::get('/operator/datapelaporankerusakan/cari', [operatorpelaporankerusakancontroller::class, 'cari'])->name('operator.pelaporankerusakan.cari');
-    Route::get('/operator/datapelaporankerusakan/create', [operatorpelaporankerusakancontroller::class, 'create'])->name('operator.pelaporankerusakan.create');
-    Route::post('/operator/datapelaporankerusakan', [operatorpelaporankerusakancontroller::class, 'store'])->name('operator.pelaporankerusakan.store');
-    Route::get('/operator/pelaporankerusakan/{id}/detail', [operatorpelaporankerusakancontroller::class, 'detail'])->name('operator.pelaporankerusakan.detail');
-    Route::get('/operator/pelaporankerusakan/{id}/detail/create', [operatorpelaporankerusakancontroller::class, 'detailcreate'])->name('operator.pelaporankerusakan.detail.create');
-    Route::post('/operator/pelaporankerusakan/{id}/detail/store', [operatorpelaporankerusakancontroller::class, 'detailstore'])->name('operator.pelaporankerusakan.detail.store');
-    Route::delete('/operator/pelaporankerusakan/{id}/detail/destroy/{pelaporankerusakandetail}', [operatorpelaporankerusakancontroller::class, 'detaildestroy'])->name('operator.pelaporankerusakan.detail.destroy');
-
-
-    Route::get('/operator/maintenance', [operatormaintenancecontroller::class, 'index'])->name('operator.maintenance');
-    Route::get('/operator/maintenance/{id}', [operatormaintenancecontroller::class, 'edit'])->name('operator.maintenance.edit');
-    Route::put('/operator/maintenance/{id}', [operatormaintenancecontroller::class, 'update'])->name('operator.maintenance.update');
-    Route::delete('/operator/maintenance/{id}', [operatormaintenancecontroller::class, 'destroy'])->name('operator.maintenance.destroy');
-    Route::get('/operator/datamaintenance/cari', [operatormaintenancecontroller::class, 'cari'])->name('operator.maintenance.cari');
-    Route::get('/operator/datamaintenance/create', [operatormaintenancecontroller::class, 'create'])->name('operator.maintenance.create');
-    Route::post('/operator/datamaintenance', [operatormaintenancecontroller::class, 'store'])->name('operator.maintenance.store');
-    Route::get('/operator/maintenance/{id}/detail', [operatormaintenancecontroller::class, 'detail'])->name('operator.maintenance.detail');
-    Route::get('/operator/maintenance/{id}/detail/create', [operatormaintenancecontroller::class, 'detailcreate'])->name('operator.maintenance.detail.create');
-    Route::post('/operator/maintenance/{id}/detail/store', [operatormaintenancecontroller::class, 'detailstore'])->name('operator.maintenance.detail.store');
-    Route::delete('/operator/maintenance/{id}/detail/destroy/{maintenancedetail}', [operatormaintenancecontroller::class, 'operator.detaildestroy'])->name('maintenance.detail.destroy');
 
 });
 
