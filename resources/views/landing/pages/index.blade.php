@@ -20,7 +20,7 @@ Beranda
 
     <div class="container">
       <div class="row min-vh-xl-100 min-vh-xxl-25">
-        <div class="col-md-5 col-xl-6 col-xxl-7 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 w-100" src="{{url('/')}}/assets/img/undraw/undraw_maintenance_re_59vn.svg" alt="hero-header" /></div>
+        <div class="col-md-5 col-xl-6 col-xxl-7 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 w-100" src="{{url('/')}}/assets/img/undraw/undraw_performance_overview_re_mqrq.svg" alt="hero-header" /></div>
         <div class="col-md-75 col-xl-6 col-xxl-5 text-md-start text-center py-6">
           <h1 class="fw-light font-base fs-6 fs-xxl-7">SI <strong>Maintenance Mesin </strong> </strong></h1>
         </div>

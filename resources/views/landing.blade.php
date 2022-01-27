@@ -186,7 +186,7 @@
 
           <div class="row">
             <div class="col-lg-6" data-aos="fade-right">
-              <img src="{{ asset('/') }}assets/img/undraw_thought_process_re_om58.svg" class="img-fluid" alt="">
+              <img src="{{ asset('/') }}assets/img/undraw_performance_overview_re_mqrq.svg" class="img-fluid" alt="">
             </div>
             <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
               <h3>Voluptatem dignissimos provident quasi corporis voluptates</h3>

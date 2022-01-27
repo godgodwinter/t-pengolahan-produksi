@@ -67,9 +67,10 @@ Users
                                 is-invalid
                             @enderror" name="tipeuser"  style="width: 75%" >
                                 <option  selected value="{{$id->tipeuser}}"> {{ucfirst($id->tipeuser)}}</option>
-                                <option value="admin"> Admin</option>
-                                <option value="operator"> Operator</option>
-                                <option value="kepalagedung"> Kepala Gedung</option>
+                                <option value="admin">Admin</option>
+                                <option value="pegawai">Pegawai</option>
+                                <option value="petani">Petani</option>
+                                <option value="manajer">Manajer</option>
                               </select>
 
                           @error('tipeuser')<div class="invalid-feedback"> {{$message}}</div>

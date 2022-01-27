@@ -116,7 +116,7 @@
               </div>
             </form>
           </div>
-          <div class="col-lg-7 z-index-2 mb-5"><img class="w-100" src="{{url('/')}}/assets/img/undraw/undraw_maintenance_re_59vn.svg" alt="..." /></div>
+          <div class="col-lg-7 z-index-2 mb-5"><img class="w-100" src="{{url('/')}}/assets/img/undraw/undraw_performance_overview_re_mqrq.svg" alt="..." /></div>
 
 
         </div>
@@ -135,7 +135,7 @@
           <div class="col-lg-11">
             <div class="row justify-content-end">
 
-              <div class="col-lg-4 col-md-5 col-6 d-md-flex align-items-md-stretch">
+              <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
                 <div class="count-box py-5">
                   <h4>Sebagai : Admin</h4>
                   <label  for="inputPhone">Username : admin</label>
@@ -145,21 +145,29 @@
               </div>
 
 
-              <div class="col-lg-4 col-md-5 col-6 d-md-flex align-items-md-stretch">
+              <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
                 <div class="count-box pb-5 pt-0 pt-lg-5">
-                    <h5>Sebagai : Operator</h5>
-                    <label  for="inputPhone">Username : operator</label>
+                    <h5>Sebagai : Pegawai / Produksi</h5>
+                    <label  for="inputPhone">Username : pegawai</label>
                     <br>
-                    <label  for="inputPhone">Password : operator</label>
+                    <label  for="inputPhone">Password : pegawai</label>
                 </div>
               </div>
 
-              <div class="col-lg-4 col-md-5 col-6 d-md-flex align-items-md-stretch">
+              <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
                 <div class="count-box pb-5 pt-0 pt-lg-5">
-                    <h5>Sebagai : Kepala Gedung</h5>
-                    <label  for="inputPhone">Username : kepalagedung</label>
+                    <h5>Sebagai : Petani </h5>
+                    <label  for="inputPhone">Username : petani</label>
                     <br>
-                    <label  for="inputPhone">Password : kepalagedung</label>
+                    <label  for="inputPhone">Password : petani</label>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                <div class="count-box pb-5 pt-0 pt-lg-5">
+                    <h5>Sebagai : Manajer</h5>
+                    <label  for="inputPhone">Username : manajer</label>
+                    <br>
+                    <label  for="inputPhone">Password : manajer</label>
                 </div>
               </div>
 
