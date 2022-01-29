@@ -24,6 +24,7 @@ use App\Http\Controllers\adminpenilaiandetailcontroller;
 use App\Http\Controllers\adminpetanicontroller;
 use App\Http\Controllers\adminposisipemaincontroller;
 use App\Http\Controllers\adminposisiseleksicontroller;
+use App\Http\Controllers\adminprodukcontroller;
 use App\Http\Controllers\adminprosesperhitungancontroller;
 use App\Http\Controllers\adminseedercontroller;
 use App\Http\Controllers\adminseederthcontroller;
