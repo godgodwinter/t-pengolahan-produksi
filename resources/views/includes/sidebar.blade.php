@@ -39,10 +39,10 @@
 
 <li {{ $pages == 'produk' ? 'class=active' : '' }}><a class="nav-link" href="{{route('produk')}}"><i class="fas fa-cash-register"></i><span>Produk </span></a></li>
 
-<li {{ $pages == 'bahanproduksi' ? 'class=active' : '' }}><a class="nav-link" href="{{route('bahanproduksi')}}"><i class="fas fa-exclamation-triangle"></i><span>Pencatatan Bahan Produksi </span></a></li>
 
+<li {{ $pages == 'hasilpanen' ? 'class=active' : '' }}><a class="nav-link" href="{{route('hasilpanen')}}"><i class="fas fa-screwdriver"></i><span>Pencatatan Hasil Panen </span></a></li>
 
-<li {{ $pages == 'hasilpanen' ? 'class=active' : '' }}><a class="nav-link" href="{{route('hasilpanen')}}"><i class="fas fa-screwdriver"></i><span>Pencatatan Pengolahan Bahan </span></a></li>
+<li {{ $pages == 'pengolahanbahan' ? 'class=active' : '' }}><a class="nav-link" href="{{route('pengolahanbahan')}}"><i class="fas fa-exclamation-triangle"></i><span>Pencatatan Bahan Produksi </span></a></li>
 
 <li {{ $pages == 'rekaprugilaba' ? 'class=active' : '' }}><a class="nav-link" href="{{route('rekaprugilaba')}}"><i class="fas fa-screwdriver"></i><span>Rekap Rugi/Laba Produksi </span></a></li>
 

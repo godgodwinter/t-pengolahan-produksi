@@ -7,6 +7,7 @@ use App\Http\Controllers\admincetakcontroller;
 use App\Http\Controllers\admindashboardcontroller;
 use App\Http\Controllers\admingedungcontroller;
 use App\Http\Controllers\admingrafikcontroller;
+use App\Http\Controllers\adminhasilpanencontroller;
 use App\Http\Controllers\adminkategoricontroller;
 use App\Http\Controllers\adminkriteriacontroller;
 use App\Http\Controllers\adminkriteriadetailcontroller;
@@ -19,6 +20,7 @@ use App\Http\Controllers\adminpelaporankerusakancontroller;
 use App\Http\Controllers\adminpelatihcontroller;
 use App\Http\Controllers\adminpemaincontroller;
 use App\Http\Controllers\adminpemainseleksicontroller;
+use App\Http\Controllers\adminpengolahanbahancontroller;
 use App\Http\Controllers\adminpenilaiancontroller;
 use App\Http\Controllers\adminpenilaiandetailcontroller;
 use App\Http\Controllers\adminpetanicontroller;
@@ -133,14 +135,14 @@ Route::group(['middleware' => ['auth:web', 'verified']], function() {
 
 
 
-    //bahanproduksi
-    Route::get('/admin/bahanproduksi', [adminbahanproduksicontroller::class, 'index'])->name('bahanproduksi');
-    Route::get('/admin/bahanproduksi/{id}', [adminbahanproduksicontroller::class, 'edit'])->name('bahanproduksi.edit');
-    Route::put('/admin/bahanproduksi/{id}', [adminbahanproduksicontroller::class, 'update'])->name('bahanproduksi.update');
-    Route::delete('/admin/bahanproduksi/{id}', [adminbahanproduksicontroller::class, 'destroy'])->name('bahanproduksi.destroy');
-    Route::get('/admin/databahanproduksi/cari', [adminbahanproduksicontroller::class, 'cari'])->name('bahanproduksi.cari');
-    Route::get('/admin/databahanproduksi/create', [adminbahanproduksicontroller::class, 'create'])->name('bahanproduksi.create');
-    Route::post('/admin/databahanproduksi', [adminbahanproduksicontroller::class, 'store'])->name('bahanproduksi.store');
+    //pengolahanbahan
+    Route::get('/admin/pengolahanbahan', [adminpengolahanbahancontroller::class, 'index'])->name('pengolahanbahan');
+    Route::get('/admin/pengolahanbahan/{id}', [adminpengolahanbahancontroller::class, 'edit'])->name('pengolahanbahan.edit');
+    Route::put('/admin/pengolahanbahan/{id}', [adminpengolahanbahancontroller::class, 'update'])->name('pengolahanbahan.update');
+    Route::delete('/admin/pengolahanbahan/{id}', [adminpengolahanbahancontroller::class, 'destroy'])->name('pengolahanbahan.destroy');
+    Route::get('/admin/datapengolahanbahan/cari', [adminpengolahanbahancontroller::class, 'cari'])->name('pengolahanbahan.cari');
+    Route::get('/admin/datapengolahanbahan/create', [adminpengolahanbahancontroller::class, 'create'])->name('pengolahanbahan.create');
+    Route::post('/admin/datapengolahanbahan', [adminpengolahanbahancontroller::class, 'store'])->name('pengolahanbahan.store');
 
 
 

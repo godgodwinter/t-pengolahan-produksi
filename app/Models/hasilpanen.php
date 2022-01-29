@@ -24,7 +24,7 @@ class hasilpanen extends Model
 
         public function petani()
         {
-            return $this->belongsTo('App\Models\petani');
+            return $this->belongsTo('App\Models\User','petani_id','id');
         }
         public function bahan()
         {
