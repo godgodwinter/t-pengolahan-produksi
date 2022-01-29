@@ -56,9 +56,12 @@ Pengolahanbahan
                     <thead>
                         <tr style="background-color: #F1F1F1">
                             <th class="text-center py-2 babeng-min-row"> No</th>
-                            <th >Nama</th>
-                            <th >Stok</th>
-                            <th >Harga Jual</th>
+                            <th >Hasil Panen</th>
+                            <th >Waktu Pengolahan</th>
+                            <th >Jumlah Pengolahan</th>
+                            <th >Hasil Pengolahan</th>
+                            <th >Produk</th>
+                            <th >Jumlah</th>
                             <th  class="text-center">Aksi</th>
                         </tr>
                     </thead>
@@ -69,13 +72,22 @@ Pengolahanbahan
 
                                     {{ ((($loop->index)+1)+(($datas->currentPage()-1)*$datas->perPage())) }}</td>
                                 <td>
-                                    {{Str::limit($data->nama,25,' ...')}}
+                                    {{Fungsi::tanggalindo($data->hasilpanen->waktu_panen)}} -  {{ $data->hasilpanen?$data->hasilpanen->bahan->nama:'Data tidak ditemukan' }} - {{$data->hasilpanen?$data->hasilpanen->petani->name:'Data tidak ditemukan'}}
                                 </td>
                                 <td>
-                                    {{Str::limit($data->stok,25,' ...')}}
+                                    {{Fungsi::tanggalindo($data->waktupengolahan)}}
                                 </td>
                                 <td>
-                                    {{Fungsi::rupiah($data->hargajual)}}
+                                    {{$data->jml_pengolahan}}
+                                </td>
+                                <td>
+                                    {{$data->hasil_pengolahan}}
+                                </td>
+                                <td>
+                                    {{$data->produk?$data->produk->nama:'Data tidak ditemukan'}}
+                                </td>
+                                <td>
+                                    {{$data->jml}}
                                 </td>
 
                                 <td class="text-center babeng-min-row">

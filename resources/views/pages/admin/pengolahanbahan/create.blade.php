@@ -35,29 +35,85 @@ Pengolahanbahan
 
                     <div class="row">
 
-                    <div class="form-group col-md-5 col-5 mt-0 ml-5">
-                        <label for="nama">Nama pengolahanbahan <code>*)</code></label>
-                        <input type="text" name="nama" id="nama" class="form-control @error('nama') is-invalid @enderror" value="{{old('nama')}}" required>
-                        @error('nama')<div class="invalid-feedback"> {{$message}}</div>
-                        @enderror
-                    </div>
+                        @push('before-script')
+                        <script type="text/javascript">
+                            $(document).ready(function() {
+
+                                // In your Javascript (external .js resource or <script> tag)
+                                    $(document).ready(function() {
+                                        $('.js-example-basic-single').select2({
+                                            // theme: "classic",
+                                            // allowClear: true,
+                                            width: "resolve"
+                                        });
+                                    });
+                            });
+                           </script>
+                        @endpush
+                        <div class="form-group col-md-5 col-5 mt-0 ml-5">
+                            <label for="hasilpanen_id">Hasil Panen <code>*)</code></label>
+
+                              <select class="js-example-basic-single form-control-sm @error('hasilpanen_id')
+                                  is-invalid
+                              @enderror" name="hasilpanen_id"  style="width: 100%" >
+                                  <option disabled selected value=""> Pilih Hasil Panen</option>
+                                  @foreach ($hasilpanen as $t)
+                                      <option value="{{ $t->id }}"> {{Fungsi::tanggalindo($t->waktu_panen)}} -  {{ $t->bahan?$t->bahan->nama:'Data tidak ditemukan' }} - {{$t->petani?$t->petani->name:'Data tidak ditemukan'}}</option>
+                                  @endforeach
+                                </select>
+
+                            @error('hasilpanen_id')<div class="invalid-feedback"> {{$message}}</div>
+                            @enderror
+
+                          </div>
 
 
-                    <div class="form-group col-md-5 col-5 mt-0 ml-5">
-                        <label for="stok">Stok <code>*)</code></label>
-                        <input type="number" min="1"  name="stok" id="stok" class="form-control @error('stok') is-invalid @enderror" value="{{old('stok')}}" required>
-                        @error('stok')<div class="invalid-feedback"> {{$message}}</div>
-                        @enderror
-                    </div>
+                          <div class="form-group col-md-5 col-5 mt-0 ml-5">
+                            <label for="waktupengolahan">Waktu Pengolahan <code>*)</code></label>
+                                <div class="form-group">
+                                    <input type="date" class="form-control datepicker @error('waktupengolahan' )
+                                is_invalid
+                            @enderror" value="{{old('waktupengolahan')?old('waktupengolahan'):date('Y-m-d')}}" name="waktupengolahan">
+                                    @error('waktupengolahan')<div class="invalid-feedback"> {{$message}}</div>
+                                    @enderror
+                                </div>
+                        </div>
+                        <div class="form-group col-md-5 col-5 mt-0 ml-5">
+                            <label for="jml_pengolahan">Jumlah Pengolahan<code>*)</code></label>
+                            <input type="text" name="jml_pengolahan" id="jml_pengolahan" class="form-control @error('jml_pengolahan') is-invalid @enderror" value="{{old('jml_pengolahan')}}" required>
+                            @error('jml_pengolahan')<div class="invalid-feedback"> {{$message}}</div>
+                            @enderror
+                        </div>
 
+                        <div class="form-group col-md-5 col-5 mt-0 ml-5">
+                            <label for="hasil_pengolahan">Hasil Pengolahan<code>*)</code></label>
+                            <input type="text" name="hasil_pengolahan" id="hasil_pengolahan" class="form-control @error('hasil_pengolahan') is-invalid @enderror" value="{{old('hasil_pengolahan')}}" required>
+                            @error('hasil_pengolahan')<div class="invalid-feedback"> {{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group col-md-5 col-5 mt-0 ml-5">
+                            <label for="nama">Produk <code>*)</code></label>
 
-                    <div class="form-group col-md-5 col-5 mt-0 ml-5">
-                        <label for="hargajual">Harga Jual <code>*)</code></label>
-                        <input type="number" min="1"  name="hargajual" id="hargajual" class="form-control @error('hargajual') is-invalid @enderror" value="{{old('hargajual')}}" required>
-                        @error('hargajual')<div class="invalid-feedback"> {{$message}}</div>
-                        @enderror
-                    </div>
+                              <select class="js-example-basic-single form-control-sm @error('produk_id')
+                                  is-invalid
+                              @enderror" name="produk_id"  style="width: 100%" >
+                                  <option disabled selected value=""> Pilih Produk</option>
+                                  @foreach ($produk as $t)
+                                      <option value="{{ $t->id }}"> {{$t->nama}}</option>
+                                  @endforeach
+                                </select>
 
+                            @error('produk_id')<div class="invalid-feedback"> {{$message}}</div>
+                            @enderror
+
+                          </div>
+
+                        <div class="form-group col-md-5 col-5 mt-0 ml-5">
+                            <label for="jml">Jumlah <code>*)</code></label>
+                            <input type="text" name="jml" id="jml" class="form-control @error('jml') is-invalid @enderror" value="{{old('jml')}}" required>
+                            @error('jml')<div class="invalid-feedback"> {{$message}}</div>
+                            @enderror
+                        </div>
 
                     </div>
 
