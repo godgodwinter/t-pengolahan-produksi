@@ -27,7 +27,9 @@ use App\Http\Controllers\adminpetanicontroller;
 use App\Http\Controllers\adminposisipemaincontroller;
 use App\Http\Controllers\adminposisiseleksicontroller;
 use App\Http\Controllers\adminprodukcontroller;
+use App\Http\Controllers\adminprodukrugilabacontroller;
 use App\Http\Controllers\adminprosesperhitungancontroller;
+use App\Http\Controllers\adminrekaprugilabacontroller;
 use App\Http\Controllers\adminseedercontroller;
 use App\Http\Controllers\adminseederthcontroller;
 use App\Http\Controllers\adminsettingscontroller;
@@ -158,14 +160,14 @@ Route::group(['middleware' => ['auth:web', 'verified']], function() {
 
 
 
-    //rekaprugilaba
-    Route::get('/admin/rekaprugilaba', [adminrekaprugilabacontroller::class, 'index'])->name('rekaprugilaba');
-    Route::get('/admin/rekaprugilaba/{id}', [adminrekaprugilabacontroller::class, 'edit'])->name('rekaprugilaba.edit');
-    Route::put('/admin/rekaprugilaba/{id}', [adminrekaprugilabacontroller::class, 'update'])->name('rekaprugilaba.update');
-    Route::delete('/admin/rekaprugilaba/{id}', [adminrekaprugilabacontroller::class, 'destroy'])->name('rekaprugilaba.destroy');
-    Route::get('/admin/datarekaprugilaba/cari', [adminrekaprugilabacontroller::class, 'cari'])->name('rekaprugilaba.cari');
-    Route::get('/admin/datarekaprugilaba/create', [adminrekaprugilabacontroller::class, 'create'])->name('rekaprugilaba.create');
-    Route::post('/admin/datarekaprugilaba', [adminrekaprugilabacontroller::class, 'store'])->name('rekaprugilaba.store');
+    //produkrugilaba
+    Route::get('/admin/produkrugilaba', [adminprodukrugilabacontroller::class, 'index'])->name('produkrugilaba');
+    Route::get('/admin/produkrugilaba/{id}', [adminprodukrugilabacontroller::class, 'edit'])->name('produkrugilaba.edit');
+    Route::put('/admin/produkrugilaba/{id}', [adminprodukrugilabacontroller::class, 'update'])->name('produkrugilaba.update');
+    Route::delete('/admin/produkrugilaba/{id}', [adminprodukrugilabacontroller::class, 'destroy'])->name('produkrugilaba.destroy');
+    Route::get('/admin/dataprodukrugilaba/cari', [adminprodukrugilabacontroller::class, 'cari'])->name('produkrugilaba.cari');
+    Route::get('/admin/dataprodukrugilaba/create', [adminprodukrugilabacontroller::class, 'create'])->name('produkrugilaba.create');
+    Route::post('/admin/dataprodukrugilaba', [adminprodukrugilabacontroller::class, 'store'])->name('produkrugilaba.store');
 
     //API
     Route::get('/admin/api/kriteriadetail/{tahunpenilaian}', [admintahunpenilaiandetailcontroller::class, 'apikriteriadetail'])->name('api.kriteriadetail');

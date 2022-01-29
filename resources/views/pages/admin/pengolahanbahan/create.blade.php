@@ -110,7 +110,7 @@ Pengolahanbahan
 
                         <div class="form-group col-md-5 col-5 mt-0 ml-5">
                             <label for="jml">Jumlah <code>*)</code></label>
-                            <input type="text" name="jml" id="jml" class="form-control @error('jml') is-invalid @enderror" value="{{old('jml')}}" required>
+                            <input type="number" min="1" name="jml" id="jml" class="form-control @error('jml') is-invalid @enderror" value="{{old('jml')}}" required>
                             @error('jml')<div class="invalid-feedback"> {{$message}}</div>
                             @enderror
                         </div>
