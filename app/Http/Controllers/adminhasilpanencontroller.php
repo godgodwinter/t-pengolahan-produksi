@@ -70,8 +70,10 @@ class adminhasilpanencontroller extends Controller
     public function edit(hasilpanen $id)
     {
         $pages='hasilpanen';
+        $bahan=bahan::get();
+        $petani=User::where('tipeuser','petani')->get();
 
-        return view('pages.admin.hasilpanen.edit',compact('pages','id'));
+        return view('pages.admin.hasilpanen.edit',compact('pages','id','bahan','petani'));
     }
     public function update(hasilpanen $id,Request $request)
     {
