@@ -57,9 +57,9 @@ Pengolahanbahan
                               <select class="js-example-basic-single form-control-sm @error('hasilpanen_id')
                                   is-invalid
                               @enderror" name="hasilpanen_id"  style="width: 100%" >
-                                  <option  selected value="{{ $id->hasilpanen_id }}"> {{$id->hasilpanen?Fungsi::tanggalindo($id->hasilpanen->waktu_panen):'Data tidak ditemukan'}} -  {{ $id->hasilpanen?$id->hasilpanen->bahan->nama:'Data tidak ditemukan' }} - {{$id->hasilpanen?$id->hasilpanen->petani->name:'Data tidak ditemukan'}}</option>
+                                  <option  selected value="{{ $id->hasilpanen_id }}"> {{$id->hasilpanen?Fungsi::tanggalindo($id->hasilpanen->waktu_panen):'Data tidak ditemukan'}} -  {{ $id->hasilpanen?$id->hasilpanen->bahan->nama:'Data tidak ditemukan' }} - {{$id->hasilpanen?$id->hasilpanen->petani->nama:'Data tidak ditemukan'}}</option>
                                   @foreach ($hasilpanen as $t)
-                                      <option value="{{ $t->id }}"> {{Fungsi::tanggalindo($t->waktu_panen)}} -  {{ $t->bahan?$t->bahan->nama:'Data tidak ditemukan' }} - {{$t->petani?$t->petani->name:'Data tidak ditemukan'}}</option>
+                                      <option value="{{ $t->id }}"> {{Fungsi::tanggalindo($t->waktu_panen)}} -  {{ $t->bahan?$t->bahan->nama:'Data tidak ditemukan' }} - {{$t->petani?$t->petani->nama:'Data tidak ditemukan'}}</option>
                                   @endforeach
                                 </select>
 

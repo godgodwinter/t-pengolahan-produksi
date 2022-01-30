@@ -58,7 +58,7 @@ Pengolahanbahan
                               @enderror" name="hasilpanen_id"  style="width: 100%"  id="hasilpanen">
                                   <option disabled selected value=""> Pilih Hasil Panen</option>
                                   @foreach ($hasilpanen as $t)
-                                      <option value="{{ $t->id }}"> {{Fungsi::tanggalindo($t->waktu_panen)}} -  {{ $t->bahan?$t->bahan->nama:'Data tidak ditemukan' }} - {{$t->petani?$t->petani->name:'Data tidak ditemukan'}}</option>
+                                      <option value="{{ $t->id }}"> {{Fungsi::tanggalindo($t->waktu_panen)}} -  {{ $t->bahan?$t->bahan->nama:'Data tidak ditemukan' }} - {{$t->petani?$t->petani->nama:'Data tidak ditemukan'}}</option>
                                   @endforeach
                                 </select>
 
