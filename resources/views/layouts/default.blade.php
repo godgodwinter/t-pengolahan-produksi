@@ -92,7 +92,7 @@
 
       <footer class="main-footer">
         <div class="footer-left">
-          Copyright &copy; 2021 <div class="bullet"></div> Design By <a href="https://baemon.web.id/">BaemonTeam</a>
+          Copyright &copy; 2022 <div class="bullet"></div> Design with <a href="#"> Stisla  Bootstrap Template</a>
         </div>
 
         @php

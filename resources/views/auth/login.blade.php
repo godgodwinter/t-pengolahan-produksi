@@ -42,7 +42,7 @@
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
-    <div class="container d-flex align-items-center justify-content-between">
+    <div class="container d-flex align-items-center justify-content-center">
 
       <div class="logo">
         <h1 class="text-light"><a href="{{url('/')}}">{{Fungsi::app_nama()}}</a></h1>
@@ -81,7 +81,7 @@
 
   <main id="main">
       <div class="container">
-        <div class="row d-flex ">
+        <div class="row d-flex justify-content-center ">
           <div class="bg-holder bg-size" style="background-image:url({{asset('/')}}assets/img/bg/dot-bg.png);background-position:bottom right;background-size:auto;">
           </div>
           <!--/.bg-holder-->
@@ -116,7 +116,7 @@
               </div>
             </form>
           </div>
-          <div class="col-lg-7 z-index-2 mb-5"><img class="w-100" src="{{url('/')}}/assets/img/undraw/undraw_performance_overview_re_mqrq.svg" alt="..." /></div>
+          {{-- <div class="col-lg-7 z-index-2 mb-5"><img class="w-100" src="{{url('/')}}/assets/img/undraw/undraw_performance_overview_re_mqrq.svg" alt="..." /></div> --}}
 
 
         </div>
@@ -185,11 +185,11 @@
 
 
 
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>BaemonTeamDev</span></strong>. All Rights Reserved
+    {{-- <div class="container">
+      <div class="copyright ">
+        Copyright &copy; 2022 <strong> Design with <span>Stisla Bootstrap Template</span></strong>. All Rights Reserved
       </div>
-    </div>
+    </div> --}}
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up"></i></a>
