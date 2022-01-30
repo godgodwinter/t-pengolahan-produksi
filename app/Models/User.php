@@ -59,8 +59,8 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function kategori()
-    {
-        return $this->belongsTo('App\Models\kategori');
-    }
+    // public function kategori()
+    // {
+    //     return $this->belongsTo('App\Models\kategori');
+    // }
 }

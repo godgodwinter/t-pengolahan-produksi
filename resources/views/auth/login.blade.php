@@ -135,7 +135,7 @@
           <div class="col-lg-11">
             <div class="row justify-content-end">
 
-              <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+              <div class="col-lg-4 col-md-5 col-6 d-md-flex align-items-md-stretch">
                 <div class="count-box py-5">
                   <h4>Sebagai : Admin</h4>
                   <label  for="inputPhone">Username : admin</label>
@@ -145,7 +145,7 @@
               </div>
 
 
-              <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+              <div class="col-lg-4 col-md-5 col-6 d-md-flex align-items-md-stretch">
                 <div class="count-box pb-5 pt-0 pt-lg-5">
                     <h5>Sebagai : Pegawai / Produksi</h5>
                     <label  for="inputPhone">Username : pegawai</label>
@@ -154,15 +154,15 @@
                 </div>
               </div>
 
-              <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+              {{-- <div class="col-lg-4 col-md-5 col-6 d-md-flex align-items-md-stretch">
                 <div class="count-box pb-5 pt-0 pt-lg-5">
                     <h5>Sebagai : Petani </h5>
                     <label  for="inputPhone">Username : petani</label>
                     <br>
                     <label  for="inputPhone">Password : petani</label>
                 </div>
-              </div>
-              <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+              </div> --}}
+              <div class="col-lg-4 col-md-5 col-6 d-md-flex align-items-md-stretch">
                 <div class="count-box pb-5 pt-0 pt-lg-5">
                     <h5>Sebagai : Manajer</h5>
                     <label  for="inputPhone">Username : manajer</label>

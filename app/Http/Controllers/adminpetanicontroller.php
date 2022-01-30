@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Fungsi;
 use App\Models\kategori;
+use App\Models\petani;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -15,7 +16,7 @@ class adminpetanicontroller extends Controller
     {
         #WAJIB
         $pages='petani';
-        $datas=User::with('kategori')->where('tipeuser','petani')
+        $datas=petani::with('kategori')
         ->paginate(Fungsi::paginationjml());
 
         return view('pages.admin.petani.index',compact('datas','request','pages'));
@@ -24,11 +25,9 @@ class adminpetanicontroller extends Controller
     {
         $cari=$request->cari;
         #WAJIB
-        $pages='users';
-        $datas=DB::table('users')
-        ->where('name','like',"%".$cari."%")->where('tipeuser','petani')
-        ->orWhere('email','like',"%".$cari."%")->where('tipeuser','petani')
-        ->orWhere('username','like',"%".$cari."% ")->where('tipeuser','petani')
+        $pages='petani';
+        $datas=DB::table('petani')
+        ->where('nama','like',"%".$cari."%")
         ->paginate(Fungsi::paginationjml());
 
         return view('pages.admin.petani.index',compact('datas','request','pages'));
@@ -43,44 +42,39 @@ class adminpetanicontroller extends Controller
     public function store(Request $request)
     {
         // dd($request);
-        $cek=DB::table('users')
-        ->where('username',$request->username)
-        ->orWhere('email',$request->email)
-        ->count();
-        // dd($cek);
-            if($cek>0){
-                    $request->validate([
-                    'username'=>'required|unique:users,username',
-                    'email'=>'required|unique:users,email',
-                    'password' => 'min:3|required_with:password2|same:password2',
-                    'password2' => 'min:3',
+        // $cek=DB::table('users')
+        // ->where('username',$request->username)
+        // ->orWhere('email',$request->email)
+        // ->count();
+        // // dd($cek);
+        //     if($cek>0){
+        //             $request->validate([
+        //             'username'=>'required|unique:users,username',
+        //             'email'=>'required|unique:users,email',
+        //             'password' => 'min:3|required_with:password2|same:password2',
+        //             'password2' => 'min:3',
 
-                    ],
-                    [
-                        'username.unique'=>'username sudah digunakan',
-                    ]);
+        //             ],
+        //             [
+        //                 'username.unique'=>'username sudah digunakan',
+        //             ]);
 
-            }
+        //     }
 
-            $request->validate([
-                'name'=>'required',
-                'username'=>'required',
-                'password' => 'min:3|required_with:password2|same:password2',
-                'password2' => 'min:3',
+        //     $request->validate([
+        //         'name'=>'required',
+        //         'username'=>'required',
+        //         'password' => 'min:3|required_with:password2|same:password2',
+        //         'password2' => 'min:3',
 
-            ],
-            [
-                'nama.nama'=>'Nama harus diisi',
-            ]);
+        //     ],
+        //     [
+        //         'nama.nama'=>'Nama harus diisi',
+        //     ]);
 
-            $getid=DB::table('users')->insertGetId(
+            $getid=DB::table('petani')->insertGetId(
                 array(
-                       'name'     =>   $request->name,
-                       'email'     =>   $request->email,
-                       'username'     =>   $request->username,
-                       'nomerinduk'     => date('YmdHis'),
-                       'password' => Hash::make($request->password),
-                       'tipeuser' => $request->tipeuser,
+                       'nama'     =>   $request->nama,
                        'kategori_id'     =>   $request->kategori_id,
                        'created_at'=>date("Y-m-d H:i:s"),
                        'updated_at'=>date("Y-m-d H:i:s")
@@ -92,90 +86,51 @@ class adminpetanicontroller extends Controller
 
     }
 
-    public function edit(User $id)
+    public function edit(petani $id)
     {
         $pages='petani';
 
         $kategori=kategori::where('prefix','kelompoktani')->get();
         return view('pages.admin.petani.edit',compact('pages','id','kategori'));
     }
-    public function update(User $id,Request $request)
+    public function update(petani $id,Request $request)
     {
 
         if($request->username!==$id->username){
 
             $request->validate([
-                'name' => "required",
+                'nama' => "required",
             ],
             [
             ]);
         }
 
         $request->validate([
-            'name'=>'required',
-            'email'=>'required',
-            'username'=>'required',
+            'nama'=>'required',
+            'kategori_id'=>'required',
         ],
         [
-            'name.required'=>'name harus diisi',
+            'nama.required'=>'name harus diisi',
         ]);
 
 
-        if($request->password!=null OR $request->password!=''){
 
-        $request->validate([
-            'password' => 'min:3|required_with:password2|same:password2',
-            'password2' => 'min:3',
-        ],
-        [
-            'nama.required'=>'nama harus diisi',
-        ]);
-            User::where('id',$id->id)
+            petani::where('id',$id->id)
             ->update([
-                'name'     =>   $request->name,
-                'username'     =>   $request->username,
-                'email'     =>   $request->email,
-                'password' => Hash::make($request->password),
-                'tipeuser' => $request->tipeuser,
-                'kategori_id'     =>   $request->kategori_id,
-               'updated_at'=>date("Y-m-d H:i:s")
-            ]);
-        }else{
-            User::where('id',$id->id)
-            ->update([
-                'name'     =>   $request->name,
-                'username'     =>   $request->username,
-                'email'     =>   $request->email,
-                'tipeuser' => $request->tipeuser,
+                'nama'     =>   $request->nama,
                 'kategori_id'     =>   $request->kategori_id,
                'updated_at'=>date("Y-m-d H:i:s")
             ]);
 
-        }
 
 
     return redirect()->route('petani')->with('status','Data berhasil diubah!')->with('tipe','success')->with('icon','fas fa-feather');
     }
-    public function destroy(User $id){
+    public function destroy(petani $id){
 
-        User::destroy($id->id);
+        petani::destroy($id->id);
         return redirect()->route('petani')->with('status','Data berhasil dihapus!')->with('tipe','warning')->with('icon','fas fa-feather');
 
     }
 
-    public function multidel(Request $request)
-    {
-
-        $ids=$request->ids;
-        User::whereIn('id',$ids)->delete();
-
-        // load ulang
-        #WAJIB
-        $pages='petani';
-        $datas=DB::table('users')->where('tipeuser','admin')
-        ->paginate(Fungsi::paginationjml());
-
-        return view('pages.admin.petani.index',compact('datas','request','pages'));
-
-    }
 }

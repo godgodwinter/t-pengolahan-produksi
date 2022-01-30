@@ -34,7 +34,7 @@ class adminhasilpanencontroller extends Controller
     {
         $pages='hasilpanen';
         $bahan=bahan::get();
-        $petani=User::where('tipeuser','petani')->get();
+        $petani=petani::get();
 
         return view('pages.admin.hasilpanen.create',compact('pages','bahan','petani'));
     }
@@ -71,7 +71,7 @@ class adminhasilpanencontroller extends Controller
     {
         $pages='hasilpanen';
         $bahan=bahan::get();
-        $petani=User::where('tipeuser','petani')->get();
+        $petani=petani::get();
 
         return view('pages.admin.hasilpanen.edit',compact('pages','id','bahan','petani'));
     }

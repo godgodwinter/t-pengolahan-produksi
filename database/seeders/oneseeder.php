@@ -54,16 +54,37 @@ class oneseeder extends Seeder
          ]);
 
 
-        DB::table('users')->insert([
-            'name' => 'Petani',
-            'email' => 'petani@gmail.com',
-            'password' => Hash::make('petani'),
-            'tipeuser' => 'petani',
-            'nomerinduk' => '3',
-            'username' => 'petani',
+        // DB::table('users')->insert([
+        //     'name' => 'Petani',
+        //     'email' => 'petani@gmail.com',
+        //     'password' => Hash::make('petani'),
+        //     'tipeuser' => 'petani',
+        //     'nomerinduk' => '3',
+        //     'username' => 'petani',
+        //     'created_at' => Carbon::now(),
+        //     'updated_at' => Carbon::now()
+        //  ]);
+
+
+        DB::table('petani')->insert([
+            'nama' => 'Petani',
+            'kategori_id' => '1',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
          ]);
+
+         DB::table('petani')->insert([
+             'nama' => 'Suwarno',
+             'kategori_id' => '1',
+             'created_at' => Carbon::now(),
+             'updated_at' => Carbon::now()
+          ]);
+          DB::table('petani')->insert([
+              'nama' => 'Sri',
+              'kategori_id' => '2',
+              'created_at' => Carbon::now(),
+              'updated_at' => Carbon::now()
+           ]);
 
           //settings SEEDER
         DB::table('settings')->insert([

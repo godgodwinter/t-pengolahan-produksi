@@ -87,7 +87,7 @@ Hasil Panen
                               @enderror" name="petani_id"  style="width: 100%" >
                                   <option disabled selected value=""> Pilih Petani</option>
                                   @foreach ($petani as $t)
-                                      <option value="{{ $t->id }}"> {{ $t->name }}</option>
+                                      <option value="{{ $t->id }}"> {{ $t->nama }} - {{$t->kategori?$t->kategori->nama:"Data tidak ditemukan"}}</option>
                                   @endforeach
                                 </select>
 

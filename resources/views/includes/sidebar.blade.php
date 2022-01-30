@@ -53,32 +53,30 @@
 
 {{-- @include('includes.sidebar_admin') --}}
 
-@elseif((Auth::user()->tipeuser)=='operator')
-
-{{-- @include('includes.sidebar_pemain') --}}
-<li {{ $pages == 'mesin' ? 'class=active' : '' }}><a class="nav-link" href="{{route('operator.mesin')}}"><i class="fas fa-cash-register"></i><span>Mesin </span></a></li>
+@elseif((Auth::user()->tipeuser)=='pegawai')
 
 
-<li {{ $pages == 'monitoring' ? 'class=active' : '' }}><a class="nav-link" href="{{route('operator.monitoring')}}"><i class="fas fa-cash-register"></i><span>Monitoring </span></a></li>
 
-<li {{ $pages == 'pelaporankerusakan' ? 'class=active' : '' }}><a class="nav-link" href="{{route('operator.pelaporankerusakan')}}"><i class="fas fa-exclamation-triangle"></i><span>Kerusakan </span></a></li>
+<li {{ $pages == 'hasilpanen' ? 'class=active' : '' }}><a class="nav-link" href="{{route('hasilpanen')}}"><i class="fas fa-signal"></i><span>Pencatatan Hasil Panen </span></a></li>
 
 
-<li {{ $pages == 'maintenance' ? 'class=active' : '' }}><a class="nav-link" href="{{route('operator.maintenance')}}"><i class="fas fa-screwdriver"></i><span>Maintenance </span></a></li>
+<li {{ $pages == 'produk' ? 'class=active' : '' }}><a class="nav-link" href="{{route('produk')}}"><i class="fas fa-cash-register"></i><span>Produk </span></a></li>
+
+
+<li {{ $pages == 'pengolahanbahan' ? 'class=active' : '' }}><a class="nav-link" href="{{route('pengolahanbahan')}}"><i class="fas fa-chart-bar"></i><span>Pencatatan Bahan Produksi </span></a></li>
+
+<li {{ $pages == 'penjualan' ? 'class=active' : '' }}><a class="nav-link" href="{{route('penjualan')}}"><i class="far fa-money-bill-alt"></i><span>Rekap Penjualan </span></a></li>
+
+
+<li {{ $pages == 'produkrugilaba' ? 'class=active' : '' }}><a class="nav-link" href="{{route('produkrugilaba')}}"><i class="fab fa-sellsy"></i><span>Rekap Rugi/Laba Produksi </span></a></li>
+
+{{-- @elseif((Auth::user()->tipeuser)=='petani') --}}
+
 
 
 @else
-{{-- kepalagedung --}}
-{{-- @include('includes.sidebar_pelatih') --}}
-<li {{ $pages == 'mesin' ? 'class=active' : '' }}><a class="nav-link" href="{{route('operator.mesin')}}"><i class="fas fa-cash-register"></i><span>Mesin </span></a></li>
-
-
-<li {{ $pages == 'monitoring' ? 'class=active' : '' }}><a class="nav-link" href="{{route('operator.monitoring')}}"><i class="fas fa-cash-register"></i><span>Monitoring </span></a></li>
-
-<li {{ $pages == 'pelaporankerusakan' ? 'class=active' : '' }}><a class="nav-link" href="{{route('operator.pelaporankerusakan')}}"><i class="fas fa-exclamation-triangle"></i><span>Kerusakan </span></a></li>
-
-
-<li {{ $pages == 'maintenance' ? 'class=active' : '' }}><a class="nav-link" href="{{route('operator.maintenance')}}"><i class="fas fa-screwdriver"></i><span>Maintenance </span></a></li>
+{{-- manajer --}}
+<li {{ $pages == 'produkrugilaba' ? 'class=active' : '' }}><a class="nav-link" href="{{route('produkrugilaba')}}"><i class="fab fa-sellsy"></i><span>Rekap Rugi/Laba Produksi </span></a></li>
 
 @endif
         </ul>

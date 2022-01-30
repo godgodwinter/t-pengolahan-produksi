@@ -36,9 +36,9 @@ Petani
                     <div class="row">
 
                     <div class="form-group col-md-5 col-5 mt-0 ml-5">
-                        <label for="name">Nama Lengkap <code>*)</code></label>
-                        <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}" required>
-                        @error('name')<div class="invalid-feedback"> {{$message}}</div>
+                        <label for="nama">Nama Lengkap <code>*)</code></label>
+                        <input type="text" name="nama" id="nama" class="form-control @error('nama') is-invalid @enderror" value="{{old('nama')}}" required>
+                        @error('nama')<div class="invalid-feedback"> {{$message}}</div>
                         @enderror
                     </div>
 
@@ -60,7 +60,7 @@ Petani
 
                       </div>
 
-                    <div class="form-group col-md-5 col-5 mt-0 ml-5">
+                    {{-- <div class="form-group col-md-5 col-5 mt-0 ml-5">
                         <label for="username">Username<code></code></label>
 
                         <input type="text" class="form-control  @error('username') is-invalid @enderror" name="username" required  value="{{old('username')}}">
@@ -76,26 +76,23 @@ Petani
 
                         @error('email')<div class="invalid-feedback"> {{$message}}</div>
                         @enderror
-                    </div>
+                    </div> --}}
 
-                    <div class="form-group col-md-5 col-5 mt-0 ml-5">
+                    {{-- <div class="form-group col-md-5 col-5 mt-0 ml-5">
                         <label for="email">Hak Akses <code></code></label>
                             <select class="js-example-basic-single form-control-sm @error('tipeuser')
                                 is-invalid
                             @enderror" name="tipeuser"  style="width: 75%" >
                                 <option disabled selected value=""> Pilih Hak Akses</option>
-                                {{-- <option value="admin">Admin</option> --}}
                                 <option value="petani">petani</option>
-                                {{-- <option value="petani">Petani</option> --}}
-                                {{-- <option value="manajer">Manajer</option> --}}
                               </select>
 
                           @error('tipeuser')<div class="invalid-feedback"> {{$message}}</div>
                           @enderror
 
-                      </div>
+                      </div> --}}
 
-                    <div class="form-group col-md-5 col-5 mt-0 ml-5">
+                    {{-- <div class="form-group col-md-5 col-5 mt-0 ml-5">
                         <label for="password">Password<code></code></label>
 
 
@@ -113,7 +110,7 @@ Petani
 
                         @error('password2')<div class="invalid-feedback"> {{$message}}</div>
                         @enderror
-                    </div>
+                    </div> --}}
 
 
 

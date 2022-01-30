@@ -57,7 +57,6 @@ Petani
                         <tr style="background-color: #F1F1F1">
                             <th class="text-center py-2 babeng-min-row"> No</th>
                             <th >Nama</th>
-                            <th>Username</th>
                             <th>Kelompok Tani</th>
                             <th  class="text-center">Aksi</th>
                         </tr>
@@ -69,9 +68,8 @@ Petani
 
                                     {{ ((($loop->index)+1)+(($datas->currentPage()-1)*$datas->perPage())) }}</td>
                                 <td>
-                                    {{Str::limit($data->name,25,' ...')}}
+                                    {{Str::limit($data->nama,25,' ...')}}
                                 </td>
-                                <td>{{Str::limit($data->username,25,' ...')}}</td>
                                 <td>{{ucfirst($data->kategori?$data->kategori->nama:'Data tidak ditemukan')}}</td>
 
                                 <td class="text-center babeng-min-row">

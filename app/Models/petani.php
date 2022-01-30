@@ -15,7 +15,11 @@ class petani extends Model
 
         protected $fillable = [
             'nama',
-            'kelompoktani',
+            'kategori_id',
         ];
+        public function kategori()
+        {
+            return $this->belongsTo('App\Models\kategori');
+        }
 
 }

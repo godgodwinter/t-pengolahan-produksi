@@ -88,9 +88,9 @@ Hasil Panen
                               <select class="js-example-basic-single form-control-sm @error('petani_id')
                                   is-invalid
                               @enderror" name="petani_id"  style="width: 100%" >
-                              <option  selected value="{{$id->petani_id}}">{{$id->petani?$id->petani->name:'Data tidak ditemukan'}}</option>
+                              <option  selected value="{{$id->petani_id}}">{{$id->petani?$id->petani->nama:'Data tidak ditemukan'}} - {{$id->petani?$id->petani->kategori->nama:"Data tidak ditemukan"}}</option>
                                   @foreach ($petani as $t)
-                                      <option value="{{ $t->id }}"> {{ $t->name }}</option>
+                                  <option value="{{ $t->id }}"> {{ $t->nama }} - {{$t->kategori?$t->kategori->nama:"Data tidak ditemukan"}}</option>
                                   @endforeach
                                 </select>
 

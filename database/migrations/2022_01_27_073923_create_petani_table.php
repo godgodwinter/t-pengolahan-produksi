@@ -16,7 +16,7 @@ class CreatePetaniTable extends Migration
         Schema::create('petani', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama')->nullable();
-            $table->string('kelompoktani')->nullable();
+            $table->string('kategori_id')->nullable(); //kelompok tani
             $table->softDeletes();
             $table->timestamps();
         });
