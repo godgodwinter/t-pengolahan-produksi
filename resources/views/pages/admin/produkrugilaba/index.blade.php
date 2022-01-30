@@ -28,7 +28,7 @@ Rekap Rugi/Laba
             <div class="card-body">
 
 
-                        <form action="{{ route('bahan.cari') }}" method="GET">
+                        <form action="{{ route('produkrugilaba.cari') }}" method="GET">
                             <div class="d-flex bd-highlight mb-3 align-items-center">
 
                                 <div class="p-2 bd-highlight">
@@ -41,7 +41,7 @@ Rekap Rugi/Laba
                                 </div>
 
                             <div class="ml-auto p-2 bd-highlight">
-                                <x-button-create link="{{route('bahan.create')}}"></x-button-create>
+                                <x-button-create link="{{route('produkrugilaba.create')}}"></x-button-create>
                         </form>
 
                     </div>
@@ -56,7 +56,10 @@ Rekap Rugi/Laba
                     <thead>
                         <tr style="background-color: #F1F1F1">
                             <th class="text-center py-2 babeng-min-row"> No</th>
-                            <th >Nama</th>
+                            <th >Nama Produk</th>
+                            <th >Jumlah di produksi per bulan</th>
+                            <th >Jumlah terjual per bulan</th>
+                            <th >Jumlah Rugi/Laba</th>
                             <th  class="text-center">Aksi</th>
                         </tr>
                     </thead>
@@ -67,12 +70,21 @@ Rekap Rugi/Laba
 
                                     {{ ((($loop->index)+1)+(($datas->currentPage()-1)*$datas->perPage())) }}</td>
                                 <td>
-                                    {{Str::limit($data->nama,25,' ...')}}
+                                   {{$data->produk?$data->produk->nama:'Data tidak ditemukan'}}
+                                </td>
+                                <td>
+                                    {{$data->jml_produk_diolah_perbulan}}
+                                </td>
+                                <td>
+                                    {{$data->jml_produk_terjual_perbulan}}
+                                </td>
+                                <td>
+                                    {{$data->jml_rugilaba}}
                                 </td>
 
                                 <td class="text-center babeng-min-row">
-                                    <x-button-edit link="{{route('bahan.edit',$data->id)}}" />
-                                    <x-button-delete link="{{route('bahan.destroy',$data->id)}}" />
+                                    <x-button-edit link="{{route('produkrugilaba.edit',$data->id)}}" />
+                                    <x-button-delete link="{{route('produkrugilaba.destroy',$data->id)}}" />
                                 </td>
                             </tr>
                         @empty

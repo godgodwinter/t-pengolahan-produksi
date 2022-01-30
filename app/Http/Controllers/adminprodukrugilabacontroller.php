@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Fungsi;
+use App\Models\produk;
 use App\Models\produkrugilaba;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -30,8 +31,8 @@ class adminprodukrugilabacontroller extends Controller
     public function create()
     {
         $pages='produkrugilaba';
-
-        return view('pages.admin.produkrugilaba.create',compact('pages'));
+        $produk=produk::get();
+        return view('pages.admin.produkrugilaba.create',compact('pages','produk'));
     }
 
     public function store(Request $request)
@@ -39,16 +40,20 @@ class adminprodukrugilabacontroller extends Controller
 
         // dd($request);
             $request->validate([
-                'nama'=>'required',
+                'tgl'=>'required',
 
             ],
             [
-                'nama.nama'=>'Nama harus diisi',
+                'tgl.require'=>'tgl harus diisi',
             ]);
 
             $getid=DB::table('produkrugilaba')->insertGetId(
                 array(
-                       'nama'     =>   $request->nama,
+                       'tgl'     =>   $request->tgl,
+                       'produk_id'     =>   $request->produk_id,
+                       'jml_produk_diolah_perbulan'     =>   $request->jml_produk_diolah_perbulan,
+                       'jml_produk_terjual_perbulan'     =>   $request->jml_produk_terjual_perbulan,
+                       'jml_rugilaba'     =>   $request->jml_rugilaba,
                        'created_at'=>date("Y-m-d H:i:s"),
                        'updated_at'=>date("Y-m-d H:i:s")
                 ));
@@ -60,24 +65,29 @@ class adminprodukrugilabacontroller extends Controller
     public function edit(produkrugilaba $id)
     {
         $pages='produkrugilaba';
+        $produk=produk::get();
 
-        return view('pages.admin.produkrugilaba.edit',compact('pages','id'));
+        return view('pages.admin.produkrugilaba.edit',compact('pages','id','produk'));
     }
     public function update(produkrugilaba $id,Request $request)
     {
 
 
         $request->validate([
-            'nama'=>'required',
+            'tgl'=>'required',
         ],
         [
-            'nama.required'=>'name harus diisi',
+            'tgl.required'=>'tgl harus diisi',
         ]);
 
 
             produkrugilaba::where('id',$id->id)
             ->update([
-                'nama'     =>   $request->nama,
+                'tgl'     =>   $request->tgl,
+                'produk_id'     =>   $request->produk_id,
+                'jml_produk_diolah_perbulan'     =>   $request->jml_produk_diolah_perbulan,
+                'jml_produk_terjual_perbulan'     =>   $request->jml_produk_terjual_perbulan,
+                'jml_rugilaba'     =>   $request->jml_rugilaba,
                'updated_at'=>date("Y-m-d H:i:s")
             ]);
 
