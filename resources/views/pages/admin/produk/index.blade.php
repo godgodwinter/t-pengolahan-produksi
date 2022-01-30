@@ -72,7 +72,14 @@ Produk
                                     {{Str::limit($data->nama,25,' ...')}}
                                 </td>
                                 <td>
-                                    {{Str::limit($data->stok,25,' ...')}}
+                                    {{-- {{Str::limit($data->stok,25,' ...')}} --}}
+                                    @php
+                                    // $getjmlproduksi=\App\Models\pengolahanbahan::where('produk_id',$data->id)->sum('jml');
+                                    // $getterjual=\App\Models\produkrugilaba::where('produk_id',$data->id)->sum('jml_produk_terjual_perbulan');
+                                    // $stok=$getjmlproduksi-$getterjual;
+                                       $stok=Fungsi::getstok($data->id);
+                                    @endphp
+                                    {{$stok}}
                                 </td>
                                 <td>
                                     {{Fungsi::rupiah($data->hargajual)}}

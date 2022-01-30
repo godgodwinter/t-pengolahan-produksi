@@ -59,9 +59,9 @@ Pengolahanbahan
                             <th >Hasil Panen</th>
                             <th >Waktu Pengolahan</th>
                             <th >Jumlah Pengolahan</th>
-                            <th >Hasil Pengolahan</th>
+                            {{-- <th >Hasil Pengolahan</th> --}}
                             <th >Produk</th>
-                            <th >Jumlah</th>
+                            <th >Jumlah Hasil</th>
                             <th  class="text-center">Aksi</th>
                         </tr>
                     </thead>
@@ -80,9 +80,9 @@ Pengolahanbahan
                                 <td>
                                     {{$data->jml_pengolahan}}
                                 </td>
-                                <td>
+                                {{-- <td>
                                     {{$data->hasil_pengolahan}}
-                                </td>
+                                </td> --}}
                                 <td>
                                     {{$data->produk?$data->produk->nama:'Data tidak ditemukan'}}
                                 </td>

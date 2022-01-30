@@ -5,6 +5,8 @@ use App\Models\dataajar;
 use App\Models\kko;
 use App\Models\kompetensidasar;
 use App\Models\materipokok;
+use App\Models\pengolahanbahan;
+use App\Models\produkrugilaba;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -14,6 +16,14 @@ class Fungsi {
     //     $user = DB::table('users')->where('userid', $user_id)->first();
     //     return (isset($user->username) ? $user->username : '');
     // }
+    public static function getstok($produk_id){
+        $stok=0;
+        $getjmlproduksi=pengolahanbahan::where('produk_id',$produk_id)->sum('jml');
+        $getterjual=produkrugilaba::where('produk_id',$produk_id)->sum('jml_produk_terjual_perbulan');
+        $stok=$getjmlproduksi-$getterjual;
+        return $stok;
+    }
+
     public static function wa_status(){
 
         $settings = DB::table('settings')->first();

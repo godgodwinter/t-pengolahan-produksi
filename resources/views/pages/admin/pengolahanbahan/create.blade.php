@@ -55,7 +55,7 @@ Pengolahanbahan
 
                               <select class="js-example-basic-single form-control-sm @error('hasilpanen_id')
                                   is-invalid
-                              @enderror" name="hasilpanen_id"  style="width: 100%" >
+                              @enderror" name="hasilpanen_id"  style="width: 100%"  id="hasilpanen">
                                   <option disabled selected value=""> Pilih Hasil Panen</option>
                                   @foreach ($hasilpanen as $t)
                                       <option value="{{ $t->id }}"> {{Fungsi::tanggalindo($t->waktu_panen)}} -  {{ $t->bahan?$t->bahan->nama:'Data tidak ditemukan' }} - {{$t->petani?$t->petani->name:'Data tidak ditemukan'}}</option>
@@ -66,7 +66,66 @@ Pengolahanbahan
                             @enderror
 
                           </div>
+                          @push('before-script')
+                          <script>
+                              $(function () {
+                                  //createobjechasilpanen
+                                  const datahasilpanen=[];
+                                    let hasilpanen={};
 
+                                    // hasilpanen={
+                                    //     id:1,
+                                    //     nama:"Petani",
+                                    //     jml:20
+                                    // };
+                                    // datahasilpanen.push(hasilpanen);
+                                    // hasilpanen={
+                                    //     id:2,
+                                    //     nama:"Petani2",
+                                    //     jml:22
+                                    // };
+                                    // datahasilpanen.push(hasilpanen);
+
+                                    // var item = datahasilpanen.find(item => item.id === 2);
+                                    // console.log(item.jml);
+
+                                    @forelse ($hasilpanen as $item)
+                                    hasilpanen={
+                                        id:{{$item->id}},
+                                        // nama:{{$item->id}},
+                                        @php
+                                        $gettelahdiolah=\App\Models\pengolahanbahan::where('hasilpanen_id',$item->id)->sum('jml_pengolahan');
+
+                                        @endphp
+                                        jml:"{{$item->jml-$gettelahdiolah}}"
+                                    };
+                                    datahasilpanen.push(hasilpanen);
+
+                                    // console.log(datahasilpanen);
+                                    @empty
+
+                                    @endforelse
+
+
+                                    // var item = datahasilpanen.find(item => item.id === 1);
+                                    // console.log(item.jml);;
+                                    console.log(datahasilpanen);
+
+                                    function getjml(id){
+                                        let jml=0;
+                                        let item = datahasilpanen.find(item => item.id == id);
+                                        jml=item.jml;
+                                        return jml;
+                                    }
+                                    $('#hasilpanen').change(function (e) {
+                                        // console.log($('#hasilpanen').val());
+                                        let jml=getjml($('#hasilpanen').val());
+                                        // console.log(jml);
+                                        $('#jmltersedia').text(jml);
+                                    });
+                                });
+                            </script>
+                          @endpush
 
                           <div class="form-group col-md-5 col-5 mt-0 ml-5">
                             <label for="waktupengolahan">Waktu Pengolahan <code>*)</code></label>
@@ -78,19 +137,23 @@ Pengolahanbahan
                                     @enderror
                                 </div>
                         </div>
+
                         <div class="form-group col-md-5 col-5 mt-0 ml-5">
-                            <label for="jml_pengolahan">Jumlah Pengolahan<code>*)</code></label>
-                            <input type="text" name="jml_pengolahan" id="jml_pengolahan" class="form-control @error('jml_pengolahan') is-invalid @enderror" value="{{old('jml_pengolahan')}}" required>
+                            @php
+                                $jmltersedia=0;
+                            @endphp
+                            <label for="jml_pengolahan">Jumlah Di olah<code>*) tersedia : </code></label><code><label id="jmltersedia">{{$jmltersedia}}</label></code>
+                            <input type="number" min="1" name="jml_pengolahan" id="jml_pengolahan" class="form-control @error('jml_pengolahan') is-invalid @enderror" value="{{old('jml_pengolahan')}}" required>
                             @error('jml_pengolahan')<div class="invalid-feedback"> {{$message}}</div>
                             @enderror
                         </div>
 
-                        <div class="form-group col-md-5 col-5 mt-0 ml-5">
+                        {{-- <div class="form-group col-md-5 col-5 mt-0 ml-5">
                             <label for="hasil_pengolahan">Hasil Pengolahan<code>*)</code></label>
                             <input type="text" name="hasil_pengolahan" id="hasil_pengolahan" class="form-control @error('hasil_pengolahan') is-invalid @enderror" value="{{old('hasil_pengolahan')}}" required>
                             @error('hasil_pengolahan')<div class="invalid-feedback"> {{$message}}</div>
                             @enderror
-                        </div>
+                        </div> --}}
                         <div class="form-group col-md-5 col-5 mt-0 ml-5">
                             <label for="nama">Produk <code>*)</code></label>
 
@@ -109,7 +172,7 @@ Pengolahanbahan
                           </div>
 
                         <div class="form-group col-md-5 col-5 mt-0 ml-5">
-                            <label for="jml">Jumlah <code>*)</code></label>
+                            <label for="jml">Jumlah Hasil Pengolahan<code>*)</code></label>
                             <input type="number" min="1" name="jml" id="jml" class="form-control @error('jml') is-invalid @enderror" value="{{old('jml')}}" required>
                             @error('jml')<div class="invalid-feedback"> {{$message}}</div>
                             @enderror

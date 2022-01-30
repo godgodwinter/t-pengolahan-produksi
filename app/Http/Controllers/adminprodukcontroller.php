@@ -49,7 +49,7 @@ class adminprodukcontroller extends Controller
             $getid=DB::table('produk')->insertGetId(
                 array(
                        'nama'     =>   $request->nama,
-                       'stok'     =>   $request->stok,
+                    //    'stok'     =>   $request->stok,
                        'hargajual'     =>   $request->hargajual,
                        'created_at'=>date("Y-m-d H:i:s"),
                        'updated_at'=>date("Y-m-d H:i:s")
@@ -80,7 +80,7 @@ class adminprodukcontroller extends Controller
             produk::where('id',$id->id)
             ->update([
                 'nama'     =>   $request->nama,
-                'stok'     =>   $request->stok,
+                // 'stok'     =>   $request->stok,
                 'hargajual'     =>   $request->hargajual,
                'updated_at'=>date("Y-m-d H:i:s")
             ]);

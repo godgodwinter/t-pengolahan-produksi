@@ -16,7 +16,7 @@ class CreateProdukTable extends Migration
         Schema::create('produk', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama');
-            $table->string('stok')->nullable();
+            // $table->string('stok')->nullable();
             $table->string('hargajual')->nullable();
             $table->softDeletes();
             $table->timestamps();

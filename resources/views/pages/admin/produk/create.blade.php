@@ -43,12 +43,12 @@ Produk
                     </div>
 
 
-                    <div class="form-group col-md-5 col-5 mt-0 ml-5">
+                    {{-- <div class="form-group col-md-5 col-5 mt-0 ml-5">
                         <label for="stok">Stok <code>*)</code></label>
                         <input type="number" min="1"  name="stok" id="stok" class="form-control @error('stok') is-invalid @enderror" value="{{old('stok')}}" required>
                         @error('stok')<div class="invalid-feedback"> {{$message}}</div>
                         @enderror
-                    </div>
+                    </div> --}}
 
 
                     <div class="form-group col-md-5 col-5 mt-0 ml-5">
