@@ -103,8 +103,18 @@ Rekap Rugi/Laba
                                     @php
                                         $jml_rugilaba=0;
                                         $jml_rugilaba=$jml_produk_diolah_perbulan-$jml_produk_terjual_perbulan;
+                                            $warna='info';
+                                        if($jml_rugilaba>0){
+                                            $status='Belum terjual';
+                                            $warna='danger';
+                                        }elseif($jml_rugilaba<0){
+                                            $status='Untung';
+                                            $jml_rugilaba=$jml_rugilaba*-1;
+                                            $warna='success';
+                                        }
                                     @endphp
-                                    {{$jml_rugilaba}} ({{Fungsi::rupiah($jml_rugilaba*$data->hargajual)}})
+                                   <button class="btn btn-sm btn-{{$warna}}"> {{$jml_rugilaba}} ({{Fungsi::rupiah($jml_rugilaba*$data->hargajual)}})</button>
+                                    {{-- - {{$status}} --}}
                                 </td>
 
                                 {{-- <td class="text-center babeng-min-row">

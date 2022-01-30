@@ -86,12 +86,12 @@ Pengolahanbahan
                             @enderror
                         </div>
 
-                        <div class="form-group col-md-5 col-5 mt-0 ml-5">
+                        {{-- <div class="form-group col-md-5 col-5 mt-0 ml-5">
                             <label for="hasil_pengolahan">Hasil Pengolahan<code>*)</code></label>
                             <input type="text" name="hasil_pengolahan" id="hasil_pengolahan" class="form-control @error('hasil_pengolahan') is-invalid @enderror" value="{{old('hasil_pengolahan')?old('hasil_pengolahan'):$id->hasil_pengolahan}}" required>
                             @error('hasil_pengolahan')<div class="invalid-feedback"> {{$message}}</div>
                             @enderror
-                        </div>
+                        </div> --}}
                         <div class="form-group col-md-5 col-5 mt-0 ml-5">
                             <label for="nama">Produk <code>*)</code></label>
 
