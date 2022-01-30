@@ -32,16 +32,16 @@ Rekap Rugi/Laba
                             <div class="d-flex bd-highlight mb-3 align-items-center">
 
                                 <div class="p-2 bd-highlight">
-                            <input type="text" class="babeng babeng-select  ml-0" name="cari">
+                            {{-- <input type="text" class="babeng babeng-select  ml-0" name="cari"> --}}
                                 </div>
 
                                 <div class="p-2 bd-highlight">
-                                <input class="btn btn-info ml-1 mt-2 mt-sm-0" type="submit" id="babeng-submit"
-                                    value="Cari">
+                                {{-- <input class="btn btn-info ml-1 mt-2 mt-sm-0" type="submit" id="babeng-submit"
+                                    value="Cari"> --}}
                                 </div>
 
                             <div class="ml-auto p-2 bd-highlight">
-                                <x-button-create link="{{route('produkrugilaba.create')}}"></x-button-create>
+                                {{-- <x-button-create link="{{route('produkrugilaba.create')}}"></x-button-create> --}}
                         </form>
 
                     </div>
@@ -57,10 +57,10 @@ Rekap Rugi/Laba
                         <tr style="background-color: #F1F1F1">
                             <th class="text-center py-2 babeng-min-row"> No</th>
                             <th >Nama Produk</th>
-                            <th >Jumlah di produksi per bulan</th>
-                            <th >Jumlah terjual per bulan</th>
-                            <th >Jumlah Rugi/Laba</th>
-                            <th  class="text-center">Aksi</th>
+                            <th  class="text-center">Jumlah di produksi per bulan</th>
+                            <th class="text-center">Jumlah terjual per bulan</th>
+                            <th class="text-center">Jumlah Rugi/Laba (Masih tersedia)</th>
+                            {{-- <th  class="text-center">Aksi</th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -70,22 +70,38 @@ Rekap Rugi/Laba
 
                                     {{ ((($loop->index)+1)+(($datas->currentPage()-1)*$datas->perPage())) }}</td>
                                 <td>
-                                   {{$data->produk?$data->produk->nama:'Data tidak ditemukan'}}
+                                   {{$data->nama}}
                                 </td>
-                                <td>
-                                    {{$data->jml_produk_diolah_perbulan}}
+                                <td class="text-center">
+                                    @php
+                                        $jml_produk_diolah_perbulan=0;
+                                        $jml_produk_diolah_perbulan=\App\Models\pengolahanbahan::where('produk_id',$data->id)
+                                        ->whereMonth('waktupengolahan', '=', date('m'))
+                                        ->sum('jml');
+                                    @endphp
+                                    {{$jml_produk_diolah_perbulan}} ({{Fungsi::rupiah($jml_produk_diolah_perbulan*$data->hargajual)}})
                                 </td>
-                                <td>
-                                    {{$data->jml_produk_terjual_perbulan}}
+                                <td class="text-center">
+                                    @php
+                                        $jml_produk_terjual_perbulan=0;
+                                        $jml_produk_terjual_perbulan=\App\Models\produkrugilaba::where('produk_id',$data->id)
+                                        ->whereMonth('tgl', '=', date('m'))
+                                        ->sum('jml_terjual');
+                                    @endphp
+                                    {{$jml_produk_terjual_perbulan}} ({{Fungsi::rupiah($jml_produk_terjual_perbulan*$data->hargajual)}})
                                 </td>
-                                <td>
-                                    {{$data->jml_rugilaba}}
+                                <td class="text-center">
+                                    @php
+                                        $jml_rugilaba=0;
+                                        $jml_rugilaba=$jml_produk_diolah_perbulan-$jml_produk_terjual_perbulan;
+                                    @endphp
+                                    {{$jml_rugilaba}} ({{Fungsi::rupiah($jml_rugilaba*$data->hargajual)}})
                                 </td>
 
-                                <td class="text-center babeng-min-row">
+                                {{-- <td class="text-center babeng-min-row">
                                     <x-button-edit link="{{route('produkrugilaba.edit',$data->id)}}" />
                                     <x-button-delete link="{{route('produkrugilaba.destroy',$data->id)}}" />
-                                </td>
+                                </td> --}}
                             </tr>
                         @empty
                             <tr>

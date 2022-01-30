@@ -63,12 +63,13 @@ Rekap Penjualan
                            </script>
                         @endpush
 
+
                         <div class="form-group col-md-5 col-5 mt-0 ml-5">
                             <label for="produk_id">Produk <code>*)</code></label>
 
                               <select class="js-example-basic-single form-control-sm @error('produk_id')
                                   is-invalid
-                              @enderror" name="produk_id"  style="width: 100%" >
+                              @enderror" name="produk_id"  style="width: 100%" id="produkperitem">
                                   <option  selected value="{{$id->produk_id}}">{{$id->produk?$id->produk->nama:'Data tidak ditemukan'}}</option>
                                   @foreach ($produk as $t)
                                       <option value="{{ $t->id }}"> {{ $t->nama }} </option>
@@ -80,7 +81,59 @@ Rekap Penjualan
 
                           </div>
 
-                    <div class="form-group col-md-5 col-5 mt-0 ml-5">
+                          @push('before-script')
+                          <script>
+                              $(function () {
+                                  //createobjechasilpanen
+                                  const dataproduk=[];
+                                    let produkperitem={};
+                                    @forelse ($produk as $item)
+                                    produkperitem={
+                                        id:{{$item->id}},
+                                        nama:"{{$item->nama}}",
+                                        @php
+                                        $terproduksi=\App\Models\pengolahanbahan::where('produk_id',$item->id)->sum('jml');
+                                        $terjual=\App\Models\produkrugilaba::where('produk_id',$item->id)->sum('jml_terjual');
+
+                                        @endphp
+                                        jml:"{{$terproduksi-$terjual}}"
+                                    };
+                                    dataproduk.push(produkperitem);
+
+                                    // console.log  dataproduk);
+                                    @empty
+
+                                    @endforelse
+
+
+                                    // var item =   dataproduk.find(item => item.id === 1);
+                                    // console.log(item.jml);
+                                    console.log(dataproduk);
+
+                                    function getjml(id){
+                                        let jml=0;
+                                        let item =  dataproduk.find(item => item.id == id);
+                                        jml=item.jml;
+                                        return jml;
+                                    }
+                                    $('#produkperitem').change(function (e) {
+                                        // console.log($('#produkperitem').val());
+                                        let jml=getjml($('#produkperitem').val());
+                                        // console.log(jml);
+                                        $('#jmltersedia').text(jml);
+                                    });
+                                });
+                            </script>
+                          @endpush
+
+                          <div class="form-group col-md-5 col-5 mt-0 ml-5">
+                            <label for="jml_terjual">Jumlah Terjual<code>*) Stok tersedia : </code></label> <code><label id="jmltersedia">0</label></code>
+                            <input type="number" min="0" name="jml_terjual" id="jml_terjual" class="form-control @error('jml_terjual') is-invalid @enderror" value="{{old('jml_terjual')?old('jml_terjual'):$id->jml_terjual}}" required>
+                            @error('jml_terjual')<div class="invalid-feedback"> {{$message}}</div>
+                            @enderror
+                        </div>
+
+                    {{-- <div class="form-group col-md-5 col-5 mt-0 ml-5">
                         <label for="jml_produk_diolah_perbulan">Jumlah Produk diolah Perbulan<code>*)</code></label>
                         <input type="number" min="0" name="jml_produk_diolah_perbulan" id="jml_produk_diolah_perbulan" class="form-control @error('jml_produk_diolah_perbulan') is-invalid @enderror" value="{{old('jml_produk_diolah_perbulan')?old('jml_produk_diolah_perbulan'):$id->jml_produk_diolah_perbulan}}" required>
                         @error('jml_produk_diolah_perbulan')<div class="invalid-feedback"> {{$message}}</div>
@@ -100,7 +153,7 @@ Rekap Penjualan
                         <input type="number" min="0" name="jml_rugilaba" id="jml_rugilaba" class="form-control @error('jml_rugilaba') is-invalid @enderror" value="{{old('jml_rugilaba')?old('jml_rugilaba'):$id->jml_rugilaba}}" required>
                         @error('jml_rugilaba')<div class="invalid-feedback"> {{$message}}</div>
                         @enderror
-                    </div>
+                    </div> --}}
 
 
                     </div>

@@ -14,7 +14,7 @@ class adminprodukrugilabacontroller extends Controller
     {
         #WAJIB
         $pages='produkrugilaba';
-        $datas=produkrugilaba::paginate(Fungsi::paginationjml());
+        $datas=produk::paginate(Fungsi::paginationjml());
 
         return view('pages.admin.produkrugilaba.index',compact('datas','request','pages'));
     }
