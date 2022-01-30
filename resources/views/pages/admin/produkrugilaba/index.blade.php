@@ -32,12 +32,12 @@ Rekap Rugi/Laba
                             <div class="d-flex bd-highlight mb-3 align-items-center">
 
                                 <div class="p-2 bd-highlight">
-                            {{-- <input type="text" class="babeng babeng-select  ml-0" name="cari"> --}}
+                            <input type="month" class="babeng babeng-select  ml-0" name="cari" value="{{$cari!==null?$cari:date('Y-m')}}">
                                 </div>
 
                                 <div class="p-2 bd-highlight">
-                                {{-- <input class="btn btn-info ml-1 mt-2 mt-sm-0" type="submit" id="babeng-submit"
-                                    value="Cari"> --}}
+                                <input class="btn btn-info ml-1 mt-2 mt-sm-0" type="submit" id="babeng-submit"
+                                    value="Cari">
                                 </div>
 
                             <div class="ml-auto p-2 bd-highlight">
@@ -74,9 +74,17 @@ Rekap Rugi/Laba
                                 </td>
                                 <td class="text-center">
                                     @php
+                                    $bulan=date('m');
+                                    $tahun=date('Y');
+                                    if($cari!=null){
+                                        $bulan=date("m",strtotime($cari));
+                                        $tahun=date("Y",strtotime($cari));
+                                    }
+                                    // dd($bulan,$tahun);
                                         $jml_produk_diolah_perbulan=0;
                                         $jml_produk_diolah_perbulan=\App\Models\pengolahanbahan::where('produk_id',$data->id)
-                                        ->whereMonth('waktupengolahan', '=', date('m'))
+                                        ->whereMonth('waktupengolahan', '=', $bulan)
+                                        ->whereYear('waktupengolahan', '=', $tahun)
                                         ->sum('jml');
                                     @endphp
                                     {{$jml_produk_diolah_perbulan}} ({{Fungsi::rupiah($jml_produk_diolah_perbulan*$data->hargajual)}})
@@ -85,7 +93,8 @@ Rekap Rugi/Laba
                                     @php
                                         $jml_produk_terjual_perbulan=0;
                                         $jml_produk_terjual_perbulan=\App\Models\produkrugilaba::where('produk_id',$data->id)
-                                        ->whereMonth('tgl', '=', date('m'))
+                                        ->whereMonth('tgl', '=', $bulan)
+                                        ->whereYear('tgl', '=', $tahun)
                                         ->sum('jml_terjual');
                                     @endphp
                                     {{$jml_produk_terjual_perbulan}} ({{Fungsi::rupiah($jml_produk_terjual_perbulan*$data->hargajual)}})

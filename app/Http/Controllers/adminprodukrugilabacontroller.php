@@ -15,18 +15,19 @@ class adminprodukrugilabacontroller extends Controller
         #WAJIB
         $pages='produkrugilaba';
         $datas=produk::paginate(Fungsi::paginationjml());
+        $cari=null;
 
-        return view('pages.admin.produkrugilaba.index',compact('datas','request','pages'));
+        return view('pages.admin.produkrugilaba.index',compact('datas','request','pages','cari'));
     }
     public function cari(Request $request)
     {
         $cari=$request->cari;
         #WAJIB
         $pages='produkrugilaba';
-        $datas=produkrugilaba::where('nama','like',"%".$cari."%")
-        ->paginate(Fungsi::paginationjml());
+        $datas=produk::paginate(Fungsi::paginationjml());
+        $cari=$request->cari;
 
-        return view('pages.admin.produkrugilaba.index',compact('datas','request','pages'));
+        return view('pages.admin.produkrugilaba.index',compact('datas','request','pages','cari'));
     }
     public function create()
     {
