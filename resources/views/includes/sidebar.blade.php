@@ -25,26 +25,26 @@
     </ul>
 </li>
 
-<li {{ $pages == 'users' ? 'class=active' : '' }}><a class="nav-link" href="{{route('users')}}"><i class="fas fa-flag-checkered"></i><span>Users </span></a></li>
+<li {{ $pages == 'users' ? 'class=active' : '' }}><a class="nav-link" href="{{route('users')}}"><i class="fas fa-user-friends"></i><span>Users </span></a></li>
 
 
 <li {{ $pages == 'kategori' ? 'class=active' : '' }}><a class="nav-link" href="{{route('kategori')}}"><i class="fas fa-boxes"></i><span>Kelompok tani </span></a></li>
+<li {{ $pages == 'petani' ? 'class=active' : '' }}><a class="nav-link" href="{{route('petani')}}"><i class="fas fa-user-astronaut"></i><span>Petani </span></a></li>
+<li {{ $pages == 'pegawai' ? 'class=active' : '' }}><a class="nav-link" href="{{route('pegawai')}}"><i class="fas fa-user-tie"></i><span>Pegawai </span></a></li>
 
 
 <li {{ $pages == 'bahan' ? 'class=active' : '' }}><a class="nav-link" href="{{route('bahan')}}"><i class="fas fa-building"></i><span>Bahan Produksi </span></a></li>
 
-<li {{ $pages == 'pegawai' ? 'class=active' : '' }}><a class="nav-link" href="{{route('pegawai')}}"><i class="fas fa-cash-register"></i><span>Pegawai </span></a></li>
-<li {{ $pages == 'petani' ? 'class=active' : '' }}><a class="nav-link" href="{{route('petani')}}"><i class="fas fa-cash-register"></i><span>Petani </span></a></li>
 
 
 <li {{ $pages == 'produk' ? 'class=active' : '' }}><a class="nav-link" href="{{route('produk')}}"><i class="fas fa-cash-register"></i><span>Produk </span></a></li>
 
 
-<li {{ $pages == 'hasilpanen' ? 'class=active' : '' }}><a class="nav-link" href="{{route('hasilpanen')}}"><i class="fas fa-screwdriver"></i><span>Pencatatan Hasil Panen </span></a></li>
+<li {{ $pages == 'hasilpanen' ? 'class=active' : '' }}><a class="nav-link" href="{{route('hasilpanen')}}"><i class="fas fa-signal"></i><span>Pencatatan Hasil Panen </span></a></li>
 
-<li {{ $pages == 'pengolahanbahan' ? 'class=active' : '' }}><a class="nav-link" href="{{route('pengolahanbahan')}}"><i class="fas fa-exclamation-triangle"></i><span>Pencatatan Bahan Produksi </span></a></li>
+<li {{ $pages == 'pengolahanbahan' ? 'class=active' : '' }}><a class="nav-link" href="{{route('pengolahanbahan')}}"><i class="fas fa-chart-bar"></i><span>Pencatatan Bahan Produksi </span></a></li>
 
-<li {{ $pages == 'produkrugilaba' ? 'class=active' : '' }}><a class="nav-link" href="{{route('produkrugilaba')}}"><i class="fas fa-screwdriver"></i><span>Rekap Rugi/Laba Produksi </span></a></li>
+<li {{ $pages == 'produkrugilaba' ? 'class=active' : '' }}><a class="nav-link" href="{{route('produkrugilaba')}}"><i class="far fa-money-bill-alt"></i><span>Rekap Rugi/Laba Produksi </span></a></li>
 
 {{-- @include('includes.sidebar_admin') --}}
 
