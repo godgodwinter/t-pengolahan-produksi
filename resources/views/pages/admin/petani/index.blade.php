@@ -58,7 +58,7 @@ Petani
                             <th class="text-center py-2 babeng-min-row"> No</th>
                             <th >Nama</th>
                             <th>Username</th>
-                            <th>Hak Akses</th>
+                            <th>Kelompok Tani</th>
                             <th  class="text-center">Aksi</th>
                         </tr>
                     </thead>
@@ -72,7 +72,7 @@ Petani
                                     {{Str::limit($data->name,25,' ...')}}
                                 </td>
                                 <td>{{Str::limit($data->username,25,' ...')}}</td>
-                                <td>{{ucfirst($data->tipeuser)}}</td>
+                                <td>{{ucfirst($data->kategori?$data->kategori->nama:'Data tidak ditemukan')}}</td>
 
                                 <td class="text-center babeng-min-row">
                                     {{-- <x-button-reset-pass link="/admin/{{ $pages }}/{{$data->id}}/reset" /> --}}

@@ -44,6 +44,23 @@ Petani
                     </div>
 
                     <div class="form-group col-md-5 col-5 mt-0 ml-5">
+                        <label for="kategori_id">Kelompok tani <code></code></label>
+                            <select class="js-example-basic-single form-control-sm @error('kategori_id')
+                                is-invalid
+                            @enderror" name="kategori_id"  style="width: 75%" >
+                                <option  selected value="{{$id->kategori_id}}">{{$id->kategori?$id->kategori->nama:'Data tidak ditemukan'}}</option>
+                                @forelse ($kategori as $item)
+                                <option value="{{$item->id}}">{{$item->nama}}</option>
+                                @empty
+
+                                @endforelse
+                              </select>
+
+                          @error('kategori_id')<div class="invalid-feedback"> {{$message}}</div>
+                          @enderror
+
+                      </div>
+                    <div class="form-group col-md-5 col-5 mt-0 ml-5">
                         <label for="username">Username<code></code></label>
 
                         <input type="text" class="form-control  @error('username') is-invalid @enderror" name="username" required  value="{{old('username') ? old('username') : $id->username}}">

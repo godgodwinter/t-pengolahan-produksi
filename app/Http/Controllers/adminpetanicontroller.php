@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Fungsi;
+use App\Models\kategori;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -14,7 +15,7 @@ class adminpetanicontroller extends Controller
     {
         #WAJIB
         $pages='petani';
-        $datas=DB::table('users')->where('tipeuser','petani')
+        $datas=User::with('kategori')->where('tipeuser','petani')
         ->paginate(Fungsi::paginationjml());
 
         return view('pages.admin.petani.index',compact('datas','request','pages'));
@@ -35,8 +36,8 @@ class adminpetanicontroller extends Controller
     public function create()
     {
         $pages='petani';
-
-        return view('pages.admin.petani.create',compact('pages'));
+        $kategori=kategori::where('prefix','kelompoktani')->get();
+        return view('pages.admin.petani.create',compact('pages','kategori'));
     }
 
     public function store(Request $request)
@@ -80,6 +81,7 @@ class adminpetanicontroller extends Controller
                        'nomerinduk'     => date('YmdHis'),
                        'password' => Hash::make($request->password),
                        'tipeuser' => $request->tipeuser,
+                       'kategori_id'     =>   $request->kategori_id,
                        'created_at'=>date("Y-m-d H:i:s"),
                        'updated_at'=>date("Y-m-d H:i:s")
                 ));
@@ -94,7 +96,8 @@ class adminpetanicontroller extends Controller
     {
         $pages='petani';
 
-        return view('pages.admin.petani.edit',compact('pages','id'));
+        $kategori=kategori::where('prefix','kelompoktani')->get();
+        return view('pages.admin.petani.edit',compact('pages','id','kategori'));
     }
     public function update(User $id,Request $request)
     {
@@ -134,6 +137,7 @@ class adminpetanicontroller extends Controller
                 'email'     =>   $request->email,
                 'password' => Hash::make($request->password),
                 'tipeuser' => $request->tipeuser,
+                'kategori_id'     =>   $request->kategori_id,
                'updated_at'=>date("Y-m-d H:i:s")
             ]);
         }else{
@@ -143,6 +147,7 @@ class adminpetanicontroller extends Controller
                 'username'     =>   $request->username,
                 'email'     =>   $request->email,
                 'tipeuser' => $request->tipeuser,
+                'kategori_id'     =>   $request->kategori_id,
                'updated_at'=>date("Y-m-d H:i:s")
             ]);
 
