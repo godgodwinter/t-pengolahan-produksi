@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-Hasil Panen
+Rekap Penjualan
 @endsection
 
 @push('before-script')
@@ -28,7 +28,7 @@ Hasil Panen
             <div class="card-body">
 
 
-                        <form action="{{ route('hasilpanen.cari') }}" method="GET">
+                        <form action="{{ route('penjualan.cari') }}" method="GET">
                             <div class="d-flex bd-highlight mb-3 align-items-center">
 
                                 <div class="p-2 bd-highlight">
@@ -41,7 +41,7 @@ Hasil Panen
                                 </div>
 
                             <div class="ml-auto p-2 bd-highlight">
-                                <x-button-create link="{{route('hasilpanen.create')}}"></x-button-create>
+                                <x-button-create link="{{route('penjualan.create')}}"></x-button-create>
                         </form>
 
                     </div>
@@ -56,11 +56,10 @@ Hasil Panen
                     <thead>
                         <tr style="background-color: #F1F1F1">
                             <th class="text-center py-2 babeng-min-row"> No</th>
-                            <th >Bahan</th>
-                            <th >Waktu Panen</th>
-                            <th >Petani</th>
-                            <th >Tanggal Pelaporan</th>
-                            <th >Jumlah</th>
+                            <th >Nama Produk</th>
+                            {{-- <th >Jumlah di produksi per bulan</th> --}}
+                            <th >Jumlah terjual </th>
+                            <th >Tanggal Penjualan </th>
                             <th  class="text-center">Aksi</th>
                         </tr>
                     </thead>
@@ -70,25 +69,19 @@ Hasil Panen
                                 <td class="text-center">
 
                                     {{ ((($loop->index)+1)+(($datas->currentPage()-1)*$datas->perPage())) }}</td>
-                                <td >
-                                    {{$data->bahan?$data->bahan->nama:'Data tidak ditemukan'}}
-                                </td>
-                                <td >
-                                    {{Fungsi::tanggalindo($data->waktu_panen)}}
-                                </td>
-                                <td >
-                                    {{$data->petani?$data->petani->name:'Data tidak ditemukan'}}
-                                </td>
-                                <td >
-                                    {{Fungsi::tanggalindo($data->tgl_pelaporan)}}
+                                <td>
+                                   {{$data->produk?$data->produk->nama:'Data tidak ditemukan'}}
                                 </td>
                                 <td>
-                                    {{$data->jml}}
+                                    {{$data->jml_terjual}}
+                                </td>
+                                <td>
+                                    {{Fungsi::tanggalindo($data->tgl)}}
                                 </td>
 
                                 <td class="text-center babeng-min-row">
-                                    <x-button-edit link="{{route('hasilpanen.edit',$data->id)}}" />
-                                    <x-button-delete link="{{route('hasilpanen.destroy',$data->id)}}" />
+                                    <x-button-edit link="{{route('penjualan.edit',$data->id)}}" />
+                                    <x-button-delete link="{{route('penjualan.destroy',$data->id)}}" />
                                 </td>
                             </tr>
                         @empty

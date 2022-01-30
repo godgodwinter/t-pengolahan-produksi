@@ -17,9 +17,10 @@ class CreateProdukrugilabaTable extends Migration
             $table->bigIncrements('id');
             $table->string('tgl');
             $table->string('produk_id')->nullable();
-            $table->string('jml_produk_diolah_perbulan')->nullable();
-            $table->string('jml_produk_terjual_perbulan')->nullable();
-            $table->string('jml_rugilaba')->nullable();
+            // $table->string('jml_produk_diolah_perbulan')->nullable();
+            // $table->string('jml_produk_terjual_perbulan')->nullable();
+            // $table->string('jml_rugilaba')->nullable();
+            $table->string('jml_terjual')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

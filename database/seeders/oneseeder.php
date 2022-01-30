@@ -96,6 +96,47 @@ class oneseeder extends Seeder
             'updated_at' => Carbon::now()
          ]);
 
+         DB::table('bahan')->insert([
+            'nama' => 'Kedelai',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+         ]);
+
+         DB::table('bahan')->insert([
+            'nama' => 'Karet',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+         ]);
+         DB::table('bahan')->insert([
+            'nama' => 'Kapas',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+         ]);
+
+
+         DB::table('produk')->insert([
+            'nama' => 'Tempe',
+            'hargajual' => 10000,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+         ]);
+
+
+
+         DB::table('produk')->insert([
+            'nama' => 'Bantal',
+            'hargajual' => 20000,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+         ]);
+
+
+         DB::table('produk')->insert([
+            'nama' => 'Sandal',
+            'hargajual' => 15000,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+         ]);
 
     }
 }

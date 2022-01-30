@@ -16,9 +16,10 @@ class produkrugilaba extends Model
         protected $fillable = [
             'tgl',
             'produk_id',
-            'jml_produk_diolah_perbulan',
-            'jml_produk_terjual_perbulan',
-            'jml_rugilaba',
+            'jml_terjual',
+            // 'jml_produk_diolah_perbulan',
+            // 'jml_produk_terjual_perbulan',
+            // 'jml_rugilaba',
         ];
 
         public function produk()

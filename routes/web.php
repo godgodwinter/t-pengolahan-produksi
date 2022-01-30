@@ -23,6 +23,7 @@ use App\Http\Controllers\adminpemainseleksicontroller;
 use App\Http\Controllers\adminpengolahanbahancontroller;
 use App\Http\Controllers\adminpenilaiancontroller;
 use App\Http\Controllers\adminpenilaiandetailcontroller;
+use App\Http\Controllers\adminpenjualancontroller;
 use App\Http\Controllers\adminpetanicontroller;
 use App\Http\Controllers\adminposisipemaincontroller;
 use App\Http\Controllers\adminposisiseleksicontroller;
@@ -157,6 +158,14 @@ Route::group(['middleware' => ['auth:web', 'verified']], function() {
     Route::get('/admin/datahasilpanen/create', [adminhasilpanencontroller::class, 'create'])->name('hasilpanen.create');
     Route::post('/admin/datahasilpanen', [adminhasilpanencontroller::class, 'store'])->name('hasilpanen.store');
 
+    //penjualan
+    Route::get('/admin/penjualan', [adminpenjualancontroller::class, 'index'])->name('penjualan');
+    Route::get('/admin/penjualan/{id}', [adminpenjualancontroller::class, 'edit'])->name('penjualan.edit');
+    Route::put('/admin/penjualan/{id}', [adminpenjualancontroller::class, 'update'])->name('penjualan.update');
+    Route::delete('/admin/penjualan/{id}', [adminpenjualancontroller::class, 'destroy'])->name('penjualan.destroy');
+    Route::get('/admin/datapenjualan/cari', [adminpenjualancontroller::class, 'cari'])->name('penjualan.cari');
+    Route::get('/admin/datapenjualan/create', [adminpenjualancontroller::class, 'create'])->name('penjualan.create');
+    Route::post('/admin/datapenjualan', [adminpenjualancontroller::class, 'store'])->name('penjualan.store');
 
 
 

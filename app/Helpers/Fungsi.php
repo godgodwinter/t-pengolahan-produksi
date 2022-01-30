@@ -19,7 +19,7 @@ class Fungsi {
     public static function getstok($produk_id){
         $stok=0;
         $getjmlproduksi=pengolahanbahan::where('produk_id',$produk_id)->sum('jml');
-        $getterjual=produkrugilaba::where('produk_id',$produk_id)->sum('jml_produk_terjual_perbulan');
+        $getterjual=produkrugilaba::where('produk_id',$produk_id)->sum('jml_terjual');
         $stok=$getjmlproduksi-$getterjual;
         return $stok;
     }

@@ -46,8 +46,10 @@
 
 <li {{ $pages == 'pengolahanbahan' ? 'class=active' : '' }}><a class="nav-link" href="{{route('pengolahanbahan')}}"><i class="fas fa-chart-bar"></i><span>Pencatatan Bahan Produksi </span></a></li>
 
+<li {{ $pages == 'penjualan' ? 'class=active' : '' }}><a class="nav-link" href="{{route('penjualan')}}"><i class="far fa-money-bill-alt"></i><span>Rekap Penjualan </span></a></li>
 
-<li {{ $pages == 'produkrugilaba' ? 'class=active' : '' }}><a class="nav-link" href="{{route('produkrugilaba')}}"><i class="far fa-money-bill-alt"></i><span>Rekap Rugi/Laba Produksi </span></a></li>
+
+<li {{ $pages == 'produkrugilaba' ? 'class=active' : '' }}><a class="nav-link" href="{{route('produkrugilaba')}}"><i class="fab fa-sellsy"></i><span>Rekap Rugi/Laba Produksi </span></a></li>
 
 {{-- @include('includes.sidebar_admin') --}}
 
