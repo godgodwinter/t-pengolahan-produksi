@@ -68,7 +68,7 @@ Users
                                 <option disabled selected value=""> Pilih Hak Akses</option>
                                 <option value="admin">Admin</option>
                                 <option value="pegawai">Pegawai</option>
-                                <option value="petani">Petani</option>
+                                {{-- <option value="petani">Petani</option> --}}
                                 <option value="manajer">Manajer</option>
                               </select>
 

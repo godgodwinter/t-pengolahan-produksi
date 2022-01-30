@@ -69,7 +69,7 @@ Users
                                 <option  selected value="{{$id->tipeuser}}"> {{ucfirst($id->tipeuser)}}</option>
                                 <option value="admin">Admin</option>
                                 <option value="pegawai">Pegawai</option>
-                                <option value="petani">Petani</option>
+                                {{-- <option value="petani">Petani</option> --}}
                                 <option value="manajer">Manajer</option>
                               </select>
 
