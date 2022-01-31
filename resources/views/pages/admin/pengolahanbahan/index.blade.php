@@ -72,7 +72,7 @@ Pengolahanbahan
 
                                     {{ ((($loop->index)+1)+(($datas->currentPage()-1)*$datas->perPage())) }}</td>
                                 <td>
-                                    {{Fungsi::tanggalindo($data->hasilpanen->waktu_panen)}} -  {{ $data->hasilpanen?$data->hasilpanen->bahan->nama:'Data tidak ditemukan' }} - {{$data->hasilpanen?$data->hasilpanen->petani->name:'Data tidak ditemukan'}}
+                                    {{$data->hasilpanen?Fungsi::tanggalindo($data->hasilpanen->waktu_panen):"Data tidak ditemukan"}} -  {{ $data->hasilpanen?$data->hasilpanen->bahan->nama:'Data tidak ditemukan' }} - {{$data->hasilpanen?$data->hasilpanen->petani->name:'Data tidak ditemukan'}}
                                 </td>
                                 <td>
                                     {{Fungsi::tanggalindo($data->waktupengolahan)}}
