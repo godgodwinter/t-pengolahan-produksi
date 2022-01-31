@@ -37,7 +37,7 @@
 
 <li {{ $pages == 'hasilpanen' ? 'class=active' : '' }}><a class="nav-link" href="{{route('hasilpanen')}}"><i class="fas fa-signal"></i><span>Pencatatan Hasil Panen </span></a></li>
 
-<li {{ $pages == 'pegawai' ? 'class=active' : '' }}><a class="nav-link" href="{{route('pegawai')}}"><i class="fas fa-user-tie"></i><span>Pegawai </span></a></li>
+{{-- <li {{ $pages == 'pegawai' ? 'class=active' : '' }}><a class="nav-link" href="{{route('pegawai')}}"><i class="fas fa-user-tie"></i><span>Pegawai </span></a></li> --}}
 
 
 
