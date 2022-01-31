@@ -35,7 +35,8 @@ class adminpetanicontroller extends Controller
     public function create()
     {
         $pages='petani';
-        $kategori=kategori::where('prefix','kelompoktani')->get();
+        $kategori=kategori::get();
+        // where('prefix','kelompoktani')->get();
         return view('pages.admin.petani.create',compact('pages','kategori'));
     }
 
@@ -90,7 +91,8 @@ class adminpetanicontroller extends Controller
     {
         $pages='petani';
 
-        $kategori=kategori::where('prefix','kelompoktani')->get();
+        $kategori=kategori::get();
+        // where('prefix','kelompoktani')->get();
         return view('pages.admin.petani.edit',compact('pages','id','kategori'));
     }
     public function update(petani $id,Request $request)
